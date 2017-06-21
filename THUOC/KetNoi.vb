@@ -19,6 +19,11 @@ Public Class KetNoi
     Public Function getData(ByVal sql As String) As DataTable
         OpenConnect()
 
+
+
+
+
+
         cmd = New SqlCommand(sql, con)
         cmd.CommandType = CommandType.StoredProcedure
         da = New SqlDataAdapter(cmd)
