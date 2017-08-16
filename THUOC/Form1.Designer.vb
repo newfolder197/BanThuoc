@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Form1
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,11 +20,14 @@ Partial Class Form1
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.BunifuGradientPanel2 = New Bunifu.Framework.UI.BunifuGradientPanel()
+        Me.BunifuFlatButton1 = New Bunifu.Framework.UI.BunifuFlatButton()
+        Me.btnHome = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.btnCTHDXuat = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.btnCTHDNhap = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.btnHoaDonXuat = New Bunifu.Framework.UI.BunifuFlatButton()
@@ -38,14 +41,19 @@ Partial Class Form1
         Me.btnclose = New Bunifu.Framework.UI.BunifuImageButton()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.FormThuoc1 = New THUOC.FormThuoc()
-        Me.FormNhomThuoc1 = New THUOC.FormNhomThuoc()
-        Me.FormNhanVien1 = New THUOC.FormNhanVien()
-        Me.FormNhaCC1 = New THUOC.FormNhaCC()
-        Me.FormHDXuat1 = New THUOC.FormHDXuat()
-        Me.FormHDNhap1 = New THUOC.FormHDNhap()
-        Me.FormCTHDNhap1 = New THUOC.FormCTHDNhap()
+        Me.BunifuDragControl1 = New Bunifu.Framework.UI.BunifuDragControl(Me.components)
+        Me.BunifuDragControl2 = New Bunifu.Framework.UI.BunifuDragControl(Me.components)
+        Me.BunifuDragControl3 = New Bunifu.Framework.UI.BunifuDragControl(Me.components)
+        Me.FormThongKe1 = New THUOC.FormThongKe()
+        Me.FormHome1 = New THUOC.FormHome()
         Me.FormCTHDXuat1 = New THUOC.FormCTHDXuat()
+        Me.FormCTHDNhap1 = New THUOC.FormCTHDNhap()
+        Me.FormHDNhap1 = New THUOC.FormHDNhap()
+        Me.FormHDXuat1 = New THUOC.FormHDXuat()
+        Me.FormNhaCC1 = New THUOC.FormNhaCC()
+        Me.FormNhanVien1 = New THUOC.FormNhanVien()
+        Me.FormNhomThuoc1 = New THUOC.FormNhomThuoc()
+        Me.FormThuoc1 = New THUOC.FormThuoc()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.BunifuGradientPanel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -69,6 +77,8 @@ Partial Class Form1
         '
         Me.BunifuGradientPanel2.BackgroundImage = CType(resources.GetObject("BunifuGradientPanel2.BackgroundImage"), System.Drawing.Image)
         Me.BunifuGradientPanel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BunifuGradientPanel2.Controls.Add(Me.BunifuFlatButton1)
+        Me.BunifuGradientPanel2.Controls.Add(Me.btnHome)
         Me.BunifuGradientPanel2.Controls.Add(Me.btnCTHDXuat)
         Me.BunifuGradientPanel2.Controls.Add(Me.btnCTHDNhap)
         Me.BunifuGradientPanel2.Controls.Add(Me.btnHoaDonXuat)
@@ -79,9 +89,9 @@ Partial Class Form1
         Me.BunifuGradientPanel2.Controls.Add(Me.btnThuoc)
         Me.BunifuGradientPanel2.Controls.Add(Me.PictureBox4)
         Me.BunifuGradientPanel2.Dock = System.Windows.Forms.DockStyle.Left
-        Me.BunifuGradientPanel2.GradientBottomLeft = System.Drawing.Color.White
-        Me.BunifuGradientPanel2.GradientBottomRight = System.Drawing.Color.White
-        Me.BunifuGradientPanel2.GradientTopLeft = System.Drawing.Color.White
+        Me.BunifuGradientPanel2.GradientBottomLeft = System.Drawing.Color.Gray
+        Me.BunifuGradientPanel2.GradientBottomRight = System.Drawing.Color.LightGray
+        Me.BunifuGradientPanel2.GradientTopLeft = System.Drawing.Color.Gainsboro
         Me.BunifuGradientPanel2.GradientTopRight = System.Drawing.Color.White
         Me.BunifuGradientPanel2.Location = New System.Drawing.Point(0, 0)
         Me.BunifuGradientPanel2.Name = "BunifuGradientPanel2"
@@ -89,9 +99,77 @@ Partial Class Form1
         Me.BunifuGradientPanel2.Size = New System.Drawing.Size(200, 680)
         Me.BunifuGradientPanel2.TabIndex = 4
         '
+        'BunifuFlatButton1
+        '
+        Me.BunifuFlatButton1.Activecolor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(150, Byte), Integer), CType(CType(243, Byte), Integer))
+        Me.BunifuFlatButton1.BackColor = System.Drawing.Color.Transparent
+        Me.BunifuFlatButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BunifuFlatButton1.BorderRadius = 0
+        Me.BunifuFlatButton1.ButtonText = "Thống Kê"
+        Me.BunifuFlatButton1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BunifuFlatButton1.DisabledColor = System.Drawing.Color.Gray
+        Me.BunifuFlatButton1.Iconcolor = System.Drawing.Color.Transparent
+        Me.BunifuFlatButton1.Iconimage = CType(resources.GetObject("BunifuFlatButton1.Iconimage"), System.Drawing.Image)
+        Me.BunifuFlatButton1.Iconimage_right = Nothing
+        Me.BunifuFlatButton1.Iconimage_right_Selected = Nothing
+        Me.BunifuFlatButton1.Iconimage_Selected = Nothing
+        Me.BunifuFlatButton1.IconMarginLeft = 0
+        Me.BunifuFlatButton1.IconMarginRight = 0
+        Me.BunifuFlatButton1.IconRightVisible = True
+        Me.BunifuFlatButton1.IconRightZoom = 0R
+        Me.BunifuFlatButton1.IconVisible = True
+        Me.BunifuFlatButton1.IconZoom = 90.0R
+        Me.BunifuFlatButton1.IsTab = False
+        Me.BunifuFlatButton1.Location = New System.Drawing.Point(0, 629)
+        Me.BunifuFlatButton1.Name = "BunifuFlatButton1"
+        Me.BunifuFlatButton1.Normalcolor = System.Drawing.Color.Transparent
+        Me.BunifuFlatButton1.OnHovercolor = System.Drawing.Color.Silver
+        Me.BunifuFlatButton1.OnHoverTextColor = System.Drawing.Color.Transparent
+        Me.BunifuFlatButton1.selected = False
+        Me.BunifuFlatButton1.Size = New System.Drawing.Size(200, 48)
+        Me.BunifuFlatButton1.TabIndex = 11
+        Me.BunifuFlatButton1.Text = "Thống Kê"
+        Me.BunifuFlatButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BunifuFlatButton1.Textcolor = System.Drawing.Color.DarkGray
+        Me.BunifuFlatButton1.TextFont = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(161, Byte))
+        '
+        'btnHome
+        '
+        Me.btnHome.Activecolor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(150, Byte), Integer), CType(CType(243, Byte), Integer))
+        Me.btnHome.BackColor = System.Drawing.Color.FromArgb(CType(CType(216, Byte), Integer), CType(CType(216, Byte), Integer), CType(CType(216, Byte), Integer))
+        Me.btnHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnHome.BorderRadius = 0
+        Me.btnHome.ButtonText = "Home"
+        Me.btnHome.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnHome.DisabledColor = System.Drawing.Color.Gray
+        Me.btnHome.Iconcolor = System.Drawing.Color.Transparent
+        Me.btnHome.Iconimage = CType(resources.GetObject("btnHome.Iconimage"), System.Drawing.Image)
+        Me.btnHome.Iconimage_right = Nothing
+        Me.btnHome.Iconimage_right_Selected = Nothing
+        Me.btnHome.Iconimage_Selected = Nothing
+        Me.btnHome.IconMarginLeft = 0
+        Me.btnHome.IconMarginRight = 0
+        Me.btnHome.IconRightVisible = True
+        Me.btnHome.IconRightZoom = 0R
+        Me.btnHome.IconVisible = True
+        Me.btnHome.IconZoom = 90.0R
+        Me.btnHome.IsTab = False
+        Me.btnHome.Location = New System.Drawing.Point(0, 198)
+        Me.btnHome.Name = "btnHome"
+        Me.btnHome.Normalcolor = System.Drawing.Color.FromArgb(CType(CType(216, Byte), Integer), CType(CType(216, Byte), Integer), CType(CType(216, Byte), Integer))
+        Me.btnHome.OnHovercolor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(150, Byte), Integer), CType(CType(243, Byte), Integer))
+        Me.btnHome.OnHoverTextColor = System.Drawing.Color.White
+        Me.btnHome.selected = False
+        Me.btnHome.Size = New System.Drawing.Size(200, 48)
+        Me.btnHome.TabIndex = 10
+        Me.btnHome.Text = "Home"
+        Me.btnHome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnHome.Textcolor = System.Drawing.Color.White
+        Me.btnHome.TextFont = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(161, Byte))
+        '
         'btnCTHDXuat
         '
-        Me.btnCTHDXuat.Activecolor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(87, Byte), Integer))
+        Me.btnCTHDXuat.Activecolor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(150, Byte), Integer), CType(CType(243, Byte), Integer))
         Me.btnCTHDXuat.BackColor = System.Drawing.Color.Transparent
         Me.btnCTHDXuat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnCTHDXuat.BorderRadius = 0
@@ -106,11 +184,11 @@ Partial Class Form1
         Me.btnCTHDXuat.IconMarginLeft = 0
         Me.btnCTHDXuat.IconMarginRight = 0
         Me.btnCTHDXuat.IconRightVisible = True
-        Me.btnCTHDXuat.IconRightZoom = 0.0R
+        Me.btnCTHDXuat.IconRightZoom = 0R
         Me.btnCTHDXuat.IconVisible = True
         Me.btnCTHDXuat.IconZoom = 90.0R
         Me.btnCTHDXuat.IsTab = False
-        Me.btnCTHDXuat.Location = New System.Drawing.Point(0, 530)
+        Me.btnCTHDXuat.Location = New System.Drawing.Point(0, 581)
         Me.btnCTHDXuat.Name = "btnCTHDXuat"
         Me.btnCTHDXuat.Normalcolor = System.Drawing.Color.Transparent
         Me.btnCTHDXuat.OnHovercolor = System.Drawing.Color.Silver
@@ -125,7 +203,7 @@ Partial Class Form1
         '
         'btnCTHDNhap
         '
-        Me.btnCTHDNhap.Activecolor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(87, Byte), Integer))
+        Me.btnCTHDNhap.Activecolor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(150, Byte), Integer), CType(CType(243, Byte), Integer))
         Me.btnCTHDNhap.BackColor = System.Drawing.Color.Transparent
         Me.btnCTHDNhap.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnCTHDNhap.BorderRadius = 0
@@ -140,11 +218,11 @@ Partial Class Form1
         Me.btnCTHDNhap.IconMarginLeft = 0
         Me.btnCTHDNhap.IconMarginRight = 0
         Me.btnCTHDNhap.IconRightVisible = True
-        Me.btnCTHDNhap.IconRightZoom = 0.0R
+        Me.btnCTHDNhap.IconRightZoom = 0R
         Me.btnCTHDNhap.IconVisible = True
         Me.btnCTHDNhap.IconZoom = 90.0R
         Me.btnCTHDNhap.IsTab = False
-        Me.btnCTHDNhap.Location = New System.Drawing.Point(0, 482)
+        Me.btnCTHDNhap.Location = New System.Drawing.Point(0, 533)
         Me.btnCTHDNhap.Name = "btnCTHDNhap"
         Me.btnCTHDNhap.Normalcolor = System.Drawing.Color.Transparent
         Me.btnCTHDNhap.OnHovercolor = System.Drawing.Color.Silver
@@ -159,7 +237,7 @@ Partial Class Form1
         '
         'btnHoaDonXuat
         '
-        Me.btnHoaDonXuat.Activecolor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(87, Byte), Integer))
+        Me.btnHoaDonXuat.Activecolor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(150, Byte), Integer), CType(CType(243, Byte), Integer))
         Me.btnHoaDonXuat.BackColor = System.Drawing.Color.Transparent
         Me.btnHoaDonXuat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnHoaDonXuat.BorderRadius = 0
@@ -174,11 +252,11 @@ Partial Class Form1
         Me.btnHoaDonXuat.IconMarginLeft = 0
         Me.btnHoaDonXuat.IconMarginRight = 0
         Me.btnHoaDonXuat.IconRightVisible = True
-        Me.btnHoaDonXuat.IconRightZoom = 0.0R
+        Me.btnHoaDonXuat.IconRightZoom = 0R
         Me.btnHoaDonXuat.IconVisible = True
         Me.btnHoaDonXuat.IconZoom = 90.0R
         Me.btnHoaDonXuat.IsTab = False
-        Me.btnHoaDonXuat.Location = New System.Drawing.Point(0, 434)
+        Me.btnHoaDonXuat.Location = New System.Drawing.Point(0, 485)
         Me.btnHoaDonXuat.Name = "btnHoaDonXuat"
         Me.btnHoaDonXuat.Normalcolor = System.Drawing.Color.Transparent
         Me.btnHoaDonXuat.OnHovercolor = System.Drawing.Color.Silver
@@ -193,7 +271,7 @@ Partial Class Form1
         '
         'btnHoaDonNhap
         '
-        Me.btnHoaDonNhap.Activecolor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(87, Byte), Integer))
+        Me.btnHoaDonNhap.Activecolor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(150, Byte), Integer), CType(CType(243, Byte), Integer))
         Me.btnHoaDonNhap.BackColor = System.Drawing.Color.Transparent
         Me.btnHoaDonNhap.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnHoaDonNhap.BorderRadius = 0
@@ -208,11 +286,11 @@ Partial Class Form1
         Me.btnHoaDonNhap.IconMarginLeft = 0
         Me.btnHoaDonNhap.IconMarginRight = 0
         Me.btnHoaDonNhap.IconRightVisible = True
-        Me.btnHoaDonNhap.IconRightZoom = 0.0R
+        Me.btnHoaDonNhap.IconRightZoom = 0R
         Me.btnHoaDonNhap.IconVisible = True
         Me.btnHoaDonNhap.IconZoom = 90.0R
         Me.btnHoaDonNhap.IsTab = False
-        Me.btnHoaDonNhap.Location = New System.Drawing.Point(0, 386)
+        Me.btnHoaDonNhap.Location = New System.Drawing.Point(0, 437)
         Me.btnHoaDonNhap.Name = "btnHoaDonNhap"
         Me.btnHoaDonNhap.Normalcolor = System.Drawing.Color.Transparent
         Me.btnHoaDonNhap.OnHovercolor = System.Drawing.Color.Silver
@@ -227,7 +305,7 @@ Partial Class Form1
         '
         'btnNhaCungCap
         '
-        Me.btnNhaCungCap.Activecolor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(87, Byte), Integer))
+        Me.btnNhaCungCap.Activecolor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(150, Byte), Integer), CType(CType(243, Byte), Integer))
         Me.btnNhaCungCap.BackColor = System.Drawing.Color.Transparent
         Me.btnNhaCungCap.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnNhaCungCap.BorderRadius = 0
@@ -242,11 +320,11 @@ Partial Class Form1
         Me.btnNhaCungCap.IconMarginLeft = 0
         Me.btnNhaCungCap.IconMarginRight = 0
         Me.btnNhaCungCap.IconRightVisible = True
-        Me.btnNhaCungCap.IconRightZoom = 0.0R
+        Me.btnNhaCungCap.IconRightZoom = 0R
         Me.btnNhaCungCap.IconVisible = True
         Me.btnNhaCungCap.IconZoom = 90.0R
         Me.btnNhaCungCap.IsTab = False
-        Me.btnNhaCungCap.Location = New System.Drawing.Point(0, 338)
+        Me.btnNhaCungCap.Location = New System.Drawing.Point(0, 389)
         Me.btnNhaCungCap.Name = "btnNhaCungCap"
         Me.btnNhaCungCap.Normalcolor = System.Drawing.Color.Transparent
         Me.btnNhaCungCap.OnHovercolor = System.Drawing.Color.Silver
@@ -261,7 +339,7 @@ Partial Class Form1
         '
         'btnNhanVien
         '
-        Me.btnNhanVien.Activecolor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(87, Byte), Integer))
+        Me.btnNhanVien.Activecolor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(150, Byte), Integer), CType(CType(243, Byte), Integer))
         Me.btnNhanVien.BackColor = System.Drawing.Color.Transparent
         Me.btnNhanVien.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnNhanVien.BorderRadius = 0
@@ -276,11 +354,11 @@ Partial Class Form1
         Me.btnNhanVien.IconMarginLeft = 0
         Me.btnNhanVien.IconMarginRight = 0
         Me.btnNhanVien.IconRightVisible = True
-        Me.btnNhanVien.IconRightZoom = 0.0R
+        Me.btnNhanVien.IconRightZoom = 0R
         Me.btnNhanVien.IconVisible = True
         Me.btnNhanVien.IconZoom = 90.0R
         Me.btnNhanVien.IsTab = False
-        Me.btnNhanVien.Location = New System.Drawing.Point(0, 290)
+        Me.btnNhanVien.Location = New System.Drawing.Point(0, 341)
         Me.btnNhanVien.Name = "btnNhanVien"
         Me.btnNhanVien.Normalcolor = System.Drawing.Color.Transparent
         Me.btnNhanVien.OnHovercolor = System.Drawing.Color.Silver
@@ -295,7 +373,7 @@ Partial Class Form1
         '
         'btnNhomThuoc
         '
-        Me.btnNhomThuoc.Activecolor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(87, Byte), Integer))
+        Me.btnNhomThuoc.Activecolor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(150, Byte), Integer), CType(CType(243, Byte), Integer))
         Me.btnNhomThuoc.BackColor = System.Drawing.Color.Transparent
         Me.btnNhomThuoc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnNhomThuoc.BorderRadius = 0
@@ -310,11 +388,11 @@ Partial Class Form1
         Me.btnNhomThuoc.IconMarginLeft = 0
         Me.btnNhomThuoc.IconMarginRight = 0
         Me.btnNhomThuoc.IconRightVisible = True
-        Me.btnNhomThuoc.IconRightZoom = 0.0R
+        Me.btnNhomThuoc.IconRightZoom = 0R
         Me.btnNhomThuoc.IconVisible = True
         Me.btnNhomThuoc.IconZoom = 90.0R
         Me.btnNhomThuoc.IsTab = False
-        Me.btnNhomThuoc.Location = New System.Drawing.Point(0, 242)
+        Me.btnNhomThuoc.Location = New System.Drawing.Point(0, 293)
         Me.btnNhomThuoc.Name = "btnNhomThuoc"
         Me.btnNhomThuoc.Normalcolor = System.Drawing.Color.Transparent
         Me.btnNhomThuoc.OnHovercolor = System.Drawing.Color.Silver
@@ -329,8 +407,8 @@ Partial Class Form1
         '
         'btnThuoc
         '
-        Me.btnThuoc.Activecolor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(87, Byte), Integer))
-        Me.btnThuoc.BackColor = System.Drawing.Color.Silver
+        Me.btnThuoc.Activecolor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(150, Byte), Integer), CType(CType(243, Byte), Integer))
+        Me.btnThuoc.BackColor = System.Drawing.Color.Transparent
         Me.btnThuoc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnThuoc.BorderRadius = 0
         Me.btnThuoc.ButtonText = " Thuốc"
@@ -344,26 +422,26 @@ Partial Class Form1
         Me.btnThuoc.IconMarginLeft = 0
         Me.btnThuoc.IconMarginRight = 0
         Me.btnThuoc.IconRightVisible = True
-        Me.btnThuoc.IconRightZoom = 0.0R
+        Me.btnThuoc.IconRightZoom = 0R
         Me.btnThuoc.IconVisible = True
         Me.btnThuoc.IconZoom = 90.0R
         Me.btnThuoc.IsTab = False
-        Me.btnThuoc.Location = New System.Drawing.Point(0, 195)
+        Me.btnThuoc.Location = New System.Drawing.Point(0, 245)
         Me.btnThuoc.Name = "btnThuoc"
-        Me.btnThuoc.Normalcolor = System.Drawing.Color.Silver
-        Me.btnThuoc.OnHovercolor = System.Drawing.Color.Transparent
-        Me.btnThuoc.OnHoverTextColor = System.Drawing.Color.Silver
+        Me.btnThuoc.Normalcolor = System.Drawing.Color.Transparent
+        Me.btnThuoc.OnHovercolor = System.Drawing.Color.Silver
+        Me.btnThuoc.OnHoverTextColor = System.Drawing.Color.Transparent
         Me.btnThuoc.selected = False
         Me.btnThuoc.Size = New System.Drawing.Size(200, 48)
         Me.btnThuoc.TabIndex = 1
         Me.btnThuoc.Text = " Thuốc"
         Me.btnThuoc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnThuoc.Textcolor = System.Drawing.Color.White
+        Me.btnThuoc.Textcolor = System.Drawing.Color.DarkGray
         Me.btnThuoc.TextFont = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(161, Byte))
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(85, Byte), Integer))
         Me.Panel1.Controls.Add(Me.btnminus)
         Me.Panel1.Controls.Add(Me.btnclose)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
@@ -374,7 +452,7 @@ Partial Class Form1
         '
         'btnminus
         '
-        Me.btnminus.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.btnminus.BackColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(85, Byte), Integer))
         Me.btnminus.Image = CType(resources.GetObject("btnminus.Image"), System.Drawing.Image)
         Me.btnminus.ImageActive = Nothing
         Me.btnminus.Location = New System.Drawing.Point(1063, 2)
@@ -387,7 +465,7 @@ Partial Class Form1
         '
         'btnclose
         '
-        Me.btnclose.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.btnclose.BackColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(85, Byte), Integer))
         Me.btnclose.Image = CType(resources.GetObject("btnclose.Image"), System.Drawing.Image)
         Me.btnclose.ImageActive = Nothing
         Me.btnclose.Location = New System.Drawing.Point(1088, 2)
@@ -417,29 +495,76 @@ Partial Class Form1
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Phần Mềm Quản Lý Thuốc Ver 1.0"
         '
-        'FormThuoc1
+        'BunifuDragControl1
         '
-        Me.FormThuoc1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.FormThuoc1.Location = New System.Drawing.Point(200, 48)
-        Me.FormThuoc1.Name = "FormThuoc1"
-        Me.FormThuoc1.Size = New System.Drawing.Size(1117, 632)
-        Me.FormThuoc1.TabIndex = 7
+        Me.BunifuDragControl1.Fixed = True
+        Me.BunifuDragControl1.Horizontal = True
+        Me.BunifuDragControl1.TargetControl = Me.Panel1
+        Me.BunifuDragControl1.Vertical = True
         '
-        'FormNhomThuoc1
+        'BunifuDragControl2
         '
-        Me.FormNhomThuoc1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.FormNhomThuoc1.Location = New System.Drawing.Point(200, 48)
-        Me.FormNhomThuoc1.Name = "FormNhomThuoc1"
-        Me.FormNhomThuoc1.Size = New System.Drawing.Size(1117, 632)
-        Me.FormNhomThuoc1.TabIndex = 8
+        Me.BunifuDragControl2.Fixed = True
+        Me.BunifuDragControl2.Horizontal = True
+        Me.BunifuDragControl2.TargetControl = Me.Panel2
+        Me.BunifuDragControl2.Vertical = True
         '
-        'FormNhanVien1
+        'BunifuDragControl3
         '
-        Me.FormNhanVien1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.FormNhanVien1.Location = New System.Drawing.Point(200, 48)
-        Me.FormNhanVien1.Name = "FormNhanVien1"
-        Me.FormNhanVien1.Size = New System.Drawing.Size(1117, 632)
-        Me.FormNhanVien1.TabIndex = 9
+        Me.BunifuDragControl3.Fixed = True
+        Me.BunifuDragControl3.Horizontal = True
+        Me.BunifuDragControl3.TargetControl = Me.PictureBox4
+        Me.BunifuDragControl3.Vertical = True
+        '
+        'FormThongKe1
+        '
+        Me.FormThongKe1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.FormThongKe1.Location = New System.Drawing.Point(200, 48)
+        Me.FormThongKe1.Name = "FormThongKe1"
+        Me.FormThongKe1.Size = New System.Drawing.Size(1117, 632)
+        Me.FormThongKe1.TabIndex = 16
+        '
+        'FormHome1
+        '
+        Me.FormHome1.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FormHome1.ForeColor = System.Drawing.Color.DarkOrange
+        Me.FormHome1.Location = New System.Drawing.Point(200, 48)
+        Me.FormHome1.Margin = New System.Windows.Forms.Padding(7)
+        Me.FormHome1.Name = "FormHome1"
+        Me.FormHome1.Size = New System.Drawing.Size(1117, 632)
+        Me.FormHome1.TabIndex = 15
+        '
+        'FormCTHDXuat1
+        '
+        Me.FormCTHDXuat1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.FormCTHDXuat1.Location = New System.Drawing.Point(200, 48)
+        Me.FormCTHDXuat1.Name = "FormCTHDXuat1"
+        Me.FormCTHDXuat1.Size = New System.Drawing.Size(1117, 632)
+        Me.FormCTHDXuat1.TabIndex = 14
+        '
+        'FormCTHDNhap1
+        '
+        Me.FormCTHDNhap1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.FormCTHDNhap1.Location = New System.Drawing.Point(200, 48)
+        Me.FormCTHDNhap1.Name = "FormCTHDNhap1"
+        Me.FormCTHDNhap1.Size = New System.Drawing.Size(1117, 632)
+        Me.FormCTHDNhap1.TabIndex = 13
+        '
+        'FormHDNhap1
+        '
+        Me.FormHDNhap1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.FormHDNhap1.Location = New System.Drawing.Point(200, 48)
+        Me.FormHDNhap1.Name = "FormHDNhap1"
+        Me.FormHDNhap1.Size = New System.Drawing.Size(1117, 632)
+        Me.FormHDNhap1.TabIndex = 12
+        '
+        'FormHDXuat1
+        '
+        Me.FormHDXuat1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.FormHDXuat1.Location = New System.Drawing.Point(200, 48)
+        Me.FormHDXuat1.Name = "FormHDXuat1"
+        Me.FormHDXuat1.Size = New System.Drawing.Size(1117, 632)
+        Me.FormHDXuat1.TabIndex = 11
         '
         'FormNhaCC1
         '
@@ -450,43 +575,37 @@ Partial Class Form1
         Me.FormNhaCC1.Size = New System.Drawing.Size(1117, 632)
         Me.FormNhaCC1.TabIndex = 10
         '
-        'FormHDXuat1
+        'FormNhanVien1
         '
-        Me.FormHDXuat1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.FormHDXuat1.Location = New System.Drawing.Point(200, 48)
-        Me.FormHDXuat1.Name = "FormHDXuat1"
-        Me.FormHDXuat1.Size = New System.Drawing.Size(1117, 632)
-        Me.FormHDXuat1.TabIndex = 11
+        Me.FormNhanVien1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.FormNhanVien1.Location = New System.Drawing.Point(200, 48)
+        Me.FormNhanVien1.Name = "FormNhanVien1"
+        Me.FormNhanVien1.Size = New System.Drawing.Size(1117, 632)
+        Me.FormNhanVien1.TabIndex = 9
         '
-        'FormHDNhap1
+        'FormNhomThuoc1
         '
-        Me.FormHDNhap1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.FormHDNhap1.Location = New System.Drawing.Point(200, 48)
-        Me.FormHDNhap1.Name = "FormHDNhap1"
-        Me.FormHDNhap1.Size = New System.Drawing.Size(1117, 632)
-        Me.FormHDNhap1.TabIndex = 12
+        Me.FormNhomThuoc1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.FormNhomThuoc1.Location = New System.Drawing.Point(200, 48)
+        Me.FormNhomThuoc1.Name = "FormNhomThuoc1"
+        Me.FormNhomThuoc1.Size = New System.Drawing.Size(1117, 632)
+        Me.FormNhomThuoc1.TabIndex = 8
         '
-        'FormCTHDNhap1
+        'FormThuoc1
         '
-        Me.FormCTHDNhap1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.FormCTHDNhap1.Location = New System.Drawing.Point(200, 48)
-        Me.FormCTHDNhap1.Name = "FormCTHDNhap1"
-        Me.FormCTHDNhap1.Size = New System.Drawing.Size(1117, 632)
-        Me.FormCTHDNhap1.TabIndex = 13
-        '
-        'FormCTHDXuat1
-        '
-        Me.FormCTHDXuat1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.FormCTHDXuat1.Location = New System.Drawing.Point(200, 48)
-        Me.FormCTHDXuat1.Name = "FormCTHDXuat1"
-        Me.FormCTHDXuat1.Size = New System.Drawing.Size(1117, 632)
-        Me.FormCTHDXuat1.TabIndex = 14
+        Me.FormThuoc1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.FormThuoc1.Location = New System.Drawing.Point(200, 48)
+        Me.FormThuoc1.Name = "FormThuoc1"
+        Me.FormThuoc1.Size = New System.Drawing.Size(1117, 632)
+        Me.FormThuoc1.TabIndex = 7
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1315, 680)
+        Me.Controls.Add(Me.FormThongKe1)
+        Me.Controls.Add(Me.FormHome1)
         Me.Controls.Add(Me.FormCTHDXuat1)
         Me.Controls.Add(Me.FormCTHDNhap1)
         Me.Controls.Add(Me.FormHDNhap1)
@@ -537,4 +656,11 @@ Partial Class Form1
     Friend WithEvents FormHDNhap1 As THUOC.FormHDNhap
     Friend WithEvents FormCTHDNhap1 As THUOC.FormCTHDNhap
     Friend WithEvents FormCTHDXuat1 As THUOC.FormCTHDXuat
+    Friend WithEvents btnHome As Bunifu.Framework.UI.BunifuFlatButton
+    Friend WithEvents FormHome1 As FormHome
+    Friend WithEvents BunifuFlatButton1 As Bunifu.Framework.UI.BunifuFlatButton
+    Friend WithEvents FormThongKe1 As FormThongKe
+    Friend WithEvents BunifuDragControl1 As Bunifu.Framework.UI.BunifuDragControl
+    Friend WithEvents BunifuDragControl2 As Bunifu.Framework.UI.BunifuDragControl
+    Friend WithEvents BunifuDragControl3 As Bunifu.Framework.UI.BunifuDragControl
 End Class

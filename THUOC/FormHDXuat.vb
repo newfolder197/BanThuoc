@@ -64,6 +64,8 @@
     End Function
 
     Private Sub FormHDXuat_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        FormCTHDXuat1.Visible = False
+        FormCTHDXuat1.SendToBack()
         lbSoCTXuat.Visible = False
         lbTongTienXuat.Visible = False
         ShowData()
@@ -76,9 +78,133 @@
             Dim row As New DataGridViewRow
             row = dgvHdXuat.Rows(e.RowIndex)
             txtSoCTXuat.Text = row.Cells("so_ct_xuat").Value.ToString
+            FormCTHDXuat1.txtSoCTXuat.Text = row.Cells("so_ct_xuat").Value.ToString
+
             cbMaNhanVien.SelectedValue = row.Cells("ma_nv").Value
             txtTongTienXuat.Text = row.Cells("tt_ban").Value.ToString
+            DateTimePicker1.Value = row.Cells("ngay_xuat").Value.ToString
             txtSoCTXuat.Enabled = False
+
+            FormCTHDXuat1.txtSoCTXuat.Text = row.Cells("so_ct_xuat").Value.ToString
+            FormCTHDXuat1.txtTongTienXuat.Text = row.Cells("tt_ban").Value.ToString
+            FormCTHDXuat1.dtpngayxuat.Value = DateTimePicker1.Value.ToString
         End If
     End Sub
+    Public Function Remove(ByVal ssql As String, ByVal HDxuat As ClassHDXuat) As Integer
+        _soLuong = 0
+        Dim Name(_soLuong) As String
+        Dim Value(_soLuong) As Object
+        Name(0) = "@ma"
+        Value(0) = HDxuat.SoCtXuat
+        Return kn.Add(ssql, Name, Value, _soLuong)
+
+    End Function
+
+    Private Sub btnXoa_Click(sender As Object, e As EventArgs) Handles btnXoa.Click
+        Try
+            Dim HDxuat As New ClassHDXuat
+            HDxuat.SoCtXuat = txtSoCTXuat.Text
+            sql = "removeHDXUAT"
+            Remove(sql, HDxuat)
+            ShowData()
+            ClearText()
+            MessageBox.Show("Xóa thành công!")
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        End Try
+    End Sub
+
+    Private Sub btnThem_Click(sender As Object, e As EventArgs) Handles btnThem.Click
+        Try
+            Dim _soct As String
+            _soct = txtSoCTXuat.Text
+
+            If ktrID(_soct).Rows.Count > 0 Then
+                lbSoCTXuat.Text = "Trùng Số Chứng Từ!"
+                lbSoCTXuat.Visible = True
+                txtSoCTXuat.Text = ""
+                txtSoCTXuat.Focus()
+
+            Else
+
+                lbSoCTXuat.Visible = False
+                If (String.IsNullOrEmpty(txtSoCTXuat.Text)) OrElse (String.IsNullOrEmpty(txtTongTienXuat.Text)) Then
+                    KtraNULL()
+                Else
+
+
+                    lbSoCTXuat.Visible = False
+                    lbTongTienXuat.Visible = False
+                    Dim HDxuat As New ClassHDXuat
+                    HDxuat.SoCtXuat = txtSoCTXuat.Text
+                    HDxuat.Manv = cbMaNhanVien.SelectedValue
+                    HDxuat.TtBan = txtTongTienXuat.Text
+                    HDxuat.NgayXuat = DateTimePicker1.Value.ToString
+
+
+                    sql = "insertHDXUAT"
+                    Add(sql, HDxuat)
+                    ShowData()
+                    MessageBox.Show("Thêm thành công!")
+                End If
+            End If
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        End Try
+    End Sub
+
+    Private Sub btnNew_Click(sender As Object, e As EventArgs) Handles btnNew.Click
+        ClearText()
+        txtSoCTXuat.Focus()
+        txtSoCTXuat.Enabled = True
+    End Sub
+
+    Private Sub btnCapNhat_Click(sender As Object, e As EventArgs) Handles btnCapNhat.Click
+        If (String.IsNullOrEmpty(txtSoCTXuat.Text)) Then
+            KtraNULL()
+        Else
+            lbSoCTXuat.Visible = False
+            lbTongTienXuat.Visible = False
+
+            Dim HDxuat As New ClassHDXuat
+            HDxuat.SoCtXuat = txtSoCTXuat.Text
+            HDxuat.Manv = cbMaNhanVien.SelectedValue
+            HDxuat.TtBan = txtTongTienXuat.Text
+            HDxuat.NgayXuat = DateTimePicker1.Value.ToString
+
+            sql = "updateHDXUAT"
+            Add(sql, HDxuat)
+            ShowData()
+            MessageBox.Show("Cập nhật thành công!")
+        End If
+    End Sub
+
+    Private Sub txtTimKiemHDXuat_TextChanged(sender As Object, e As EventArgs) Handles txtTimKiemHDXuat.TextChanged
+        Dim _soluong As Integer
+        Dim sql As String
+        _soluong = 0
+        Dim Value(_soluong) As String
+        Dim Name(_soluong) As String
+        If txtTimKiemHDXuat.Text.Length > 0 Then
+
+            sql = "searchIDHDXUAT"
+            Name(0) = "@ma"
+            Value(0) = txtTimKiemHDXuat.Text
+            dgvHdXuat.DataSource = kn.checkID(sql, Name, Value, _soluong)
+
+        End If
+    End Sub
+
+    Private Sub btndelsearch_Click(sender As Object, e As EventArgs) Handles btndelsearch.Click
+        txtTimKiemHDXuat.Text = ""
+    End Sub
+
+    Private Sub btnDetail_Click(sender As Object, e As EventArgs) Handles btnDetail.Click
+        FormCTHDXuat1.Visible = True
+        FormCTHDXuat1.BringToFront()
+        FormCTHDXuat1.lbsophieuxuat.Text = txtSoCTXuat.Text
+    End Sub
+
+
 End Class

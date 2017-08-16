@@ -1,20 +1,20 @@
 ﻿Public Class classThuoc
     Private _maThuoc, _maNhom, _tenThuoc, _congDung, _dvt As String
     Private _sl, _giaBan As Integer
-    Private _nsx, _hsd As Date
-    Public Property Nsx() As Date
+    Private _nsx, _hsd As DateTime
+    Public Property Nsx() As DateTime
         Get
             Return _nsx
         End Get
-        Set(ByVal value As Date)
+        Set(ByVal value As DateTime)
             _nsx = value
         End Set
     End Property
-    Public Property Hsd() As Date
+    Public Property Hsd() As DateTime
         Get
             Return _hsd
         End Get
-        Set(ByVal value As Date)
+        Set(ByVal value As DateTime)
             _hsd = value
         End Set
     End Property

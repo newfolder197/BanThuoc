@@ -15,7 +15,7 @@
     End Function
 
     Public Function Add(ByVal ssql As String, ByVal Thuoc As classThuoc) As Integer
-        _soLuong = 6
+        _soLuong = 8
 
         Dim Name(_soLuong) As String
         Dim Value(_soLuong) As Object
@@ -44,8 +44,22 @@
         Name(6) = "@sl "
         Value(6) = Thuoc.Sl
 
+        Name(7) = "@nsx"
+        Value(7) = Thuoc.Nsx
 
+        Name(8) = "@hsd"
+        Value(8) = Thuoc.Hsd
         Return kn.Add(ssql, Name, Value, _soLuong)
+    End Function
+
+    Public Function Remove(ByVal ssql As String, ByVal Thuoc As classThuoc) As Integer
+        _soLuong = 0
+        Dim Name(_soLuong) As String
+        Dim Value(_soLuong) As Object
+        Name(0) = "@ma"
+        Value(0) = Thuoc.MaThuoc
+        Return kn.Add(ssql, Name, Value, _soLuong)
+
     End Function
     Private Sub loadMaNhom()
         cbMaNhom.DataSource = kn.getData("loadNHOMTHUOC")
@@ -121,36 +135,41 @@
 
     End Sub
 
-    
+
 
 
     Private Sub btnThem_Click(sender As Object, e As EventArgs) Handles btnThem.Click
         Try
-            Dim _maThuoc As String
-            _maThuoc = txtMaThuoc.Text
+            Dim _mas As String
+            _mas = txtMaThuoc.Text
 
-            If ktrID(_maThuoc).Rows.Count > 0 Then
-                lbMaThuoc.Text = "Trùng mã thuốc!"
+            If ktrID(_mas).Rows.Count > 0 Then
+                lbMaThuoc.Text = "Trùng mã thuốc!"
                 lbMaThuoc.Visible = True
                 txtMaThuoc.Text = ""
                 txtMaThuoc.Focus()
-
             Else
                 lbMaThuoc.Visible = False
-                If (String.IsNullOrEmpty(txtTenThuoc.Text)) OrElse (String.IsNullOrEmpty(txtCongDung.Text)) OrElse (String.IsNullOrEmpty(txtDvt.Text)) OrElse (String.IsNullOrEmpty(txtGiaBan.Text)) Then
+                If (String.IsNullOrEmpty(txtCongDung.Text)) OrElse (String.IsNullOrEmpty(txtDvt.Text)) OrElse (String.IsNullOrEmpty(txtGiaBan.Text)) OrElse (String.IsNullOrEmpty(txtMaThuoc.Text)) OrElse (String.IsNullOrEmpty(txtSoLuong.Text)) OrElse (String.IsNullOrEmpty(txtTenThuoc.Text)) Then
                     KtraNULL()
                 Else
+                    lbMaThuoc.Visible = False
+                    lbSoLuong.Visible = False
                     lbTenThuoc.Visible = False
                     lbCongDung.Visible = False
                     lbDvt.Visible = False
                     lbGiaBan.Visible = False
+                    lbMaNhom.Visible = False
                     Dim Thuoc As New classThuoc
                     Thuoc.MaThuoc = txtMaThuoc.Text
                     Thuoc.MaNhom = cbMaNhom.SelectedValue
                     Thuoc.CongDung = txtCongDung.Text
                     Thuoc.Dvt = txtDvt.Text
                     Thuoc.GiaBan = txtGiaBan.Text
-
+                    Thuoc.Sl = txtSoLuong.Text
+                    Thuoc.TenThuoc = txtTenThuoc.Text
+                    Thuoc.Nsx = DateTimePicker1.Value.ToString
+                    Thuoc.Hsd = DateTimePicker2.Value.ToString
                     sql = "insertTHUOC"
                     Add(sql, Thuoc)
                     ShowData()
@@ -162,7 +181,7 @@
             MessageBox.Show(ex.ToString)
         End Try
     End Sub
- 
+
     Private Sub btnNew_Click(sender As Object, e As EventArgs) Handles btnNew.Click
         ClearText()
         txtMaThuoc.Focus()
@@ -186,7 +205,8 @@
             Thuoc.Dvt = txtDvt.Text
             Thuoc.Sl = txtSoLuong.Text
             Thuoc.GiaBan = txtGiaBan.Text
-
+            Thuoc.Nsx = DateTimePicker1.Value.ToString
+            Thuoc.Hsd = DateTimePicker2.Value.ToString
 
             sql = "updateTHUOC"
             Add(sql, Thuoc)
@@ -206,7 +226,44 @@
             txtDvt.Text = row.Cells("dv_tinh").Value.ToString
             txtSoLuong.Text = row.Cells("sl").Value.ToString
             txtGiaBan.Text = row.Cells("gia_ban").Value.ToString
+            DateTimePicker1.Value = row.Cells("nsx").Value.ToString
+            DateTimePicker2.Value = row.Cells("hsd").Value.ToString
             txtMaThuoc.Enabled = False
         End If
+    End Sub
+
+    Private Sub btnXoa_Click(sender As Object, e As EventArgs) Handles btnXoa.Click
+        Try
+            Dim Thuoc As New classThuoc
+            Thuoc.MaThuoc = txtMaThuoc.Text
+            sql = "removeTHUOC"
+            Remove(sql, Thuoc)
+            ShowData()
+            ClearText()
+            MessageBox.Show("Xóa thành công!")
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+
+        End Try
+    End Sub
+
+    Private Sub txtTimKiemThuoc_TextChanged(sender As Object, e As EventArgs) Handles txtTimKiemThuoc.TextChanged
+        Dim _soluong As Integer
+        Dim sql As String
+        _soluong = 0
+        Dim Value(_soluong) As String
+        Dim Name(_soluong) As String
+        If txtTimKiemThuoc.Text.Length > 0 Then
+
+            sql = "searchIDTHUOC"
+            Name(0) = "@ma"
+            Value(0) = txtTimKiemThuoc.Text
+            dgvThuoc.DataSource = kn.checkID(sql, Name, Value, _soluong)
+
+        End If
+    End Sub
+
+    Private Sub btnclose_Click(sender As Object, e As EventArgs) Handles btnclose.Click
+        txtTimKiemThuoc.Text = ""
     End Sub
 End Class

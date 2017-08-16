@@ -51,12 +51,15 @@ Partial Class FormThuoc
         Me.lbGiaBan = New System.Windows.Forms.Label()
         Me.btnThem = New Bunifu.Framework.UI.BunifuTileButton()
         Me.btnXoa = New Bunifu.Framework.UI.BunifuTileButton()
-        Me.btnSua = New Bunifu.Framework.UI.BunifuTileButton()
         Me.btnNew = New Bunifu.Framework.UI.BunifuTileButton()
         Me.btnCapNhat = New Bunifu.Framework.UI.BunifuTileButton()
         Me.txtMaThuoc = New Bunifu.Framework.UI.BunifuMaterialTextbox()
         Me.dgvThuoc = New Bunifu.Framework.UI.BunifuCustomDataGrid()
+        Me.btnclose = New Bunifu.Framework.UI.BunifuImageButton()
+        Me.txtTimKiemThuoc = New System.Windows.Forms.TextBox()
+        Me.BunifuCustomLabel1 = New Bunifu.Framework.UI.BunifuCustomLabel()
         CType(Me.dgvThuoc, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.btnclose, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -340,7 +343,7 @@ Partial Class FormThuoc
         Me.btnThem.ImageZoom = 50
         Me.btnThem.LabelPosition = 26
         Me.btnThem.LabelText = "Thêm"
-        Me.btnThem.Location = New System.Drawing.Point(695, 494)
+        Me.btnThem.Location = New System.Drawing.Point(606, 494)
         Me.btnThem.Margin = New System.Windows.Forms.Padding(6)
         Me.btnThem.Name = "btnThem"
         Me.btnThem.Size = New System.Drawing.Size(71, 77)
@@ -359,30 +362,11 @@ Partial Class FormThuoc
         Me.btnXoa.ImageZoom = 50
         Me.btnXoa.LabelPosition = 26
         Me.btnXoa.LabelText = "Xóa"
-        Me.btnXoa.Location = New System.Drawing.Point(564, 494)
+        Me.btnXoa.Location = New System.Drawing.Point(428, 494)
         Me.btnXoa.Margin = New System.Windows.Forms.Padding(6)
         Me.btnXoa.Name = "btnXoa"
         Me.btnXoa.Size = New System.Drawing.Size(71, 77)
         Me.btnXoa.TabIndex = 31
-        '
-        'btnSua
-        '
-        Me.btnSua.BackColor = System.Drawing.Color.SeaGreen
-        Me.btnSua.color = System.Drawing.Color.SeaGreen
-        Me.btnSua.colorActive = System.Drawing.Color.MediumSeaGreen
-        Me.btnSua.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnSua.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSua.ForeColor = System.Drawing.Color.White
-        Me.btnSua.Image = CType(resources.GetObject("btnSua.Image"), System.Drawing.Image)
-        Me.btnSua.ImagePosition = 0
-        Me.btnSua.ImageZoom = 50
-        Me.btnSua.LabelPosition = 26
-        Me.btnSua.LabelText = "Sửa"
-        Me.btnSua.Location = New System.Drawing.Point(428, 494)
-        Me.btnSua.Margin = New System.Windows.Forms.Padding(6)
-        Me.btnSua.Name = "btnSua"
-        Me.btnSua.Size = New System.Drawing.Size(71, 77)
-        Me.btnSua.TabIndex = 33
         '
         'btnNew
         '
@@ -397,7 +381,7 @@ Partial Class FormThuoc
         Me.btnNew.ImageZoom = 50
         Me.btnNew.LabelPosition = 26
         Me.btnNew.LabelText = "New"
-        Me.btnNew.Location = New System.Drawing.Point(828, 494)
+        Me.btnNew.Location = New System.Drawing.Point(783, 494)
         Me.btnNew.Margin = New System.Windows.Forms.Padding(6)
         Me.btnNew.Name = "btnNew"
         Me.btnNew.Size = New System.Drawing.Size(71, 77)
@@ -472,16 +456,49 @@ Partial Class FormThuoc
         Me.dgvThuoc.Size = New System.Drawing.Size(642, 320)
         Me.dgvThuoc.TabIndex = 37
         '
+        'btnclose
+        '
+        Me.btnclose.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.btnclose.Image = CType(resources.GetObject("btnclose.Image"), System.Drawing.Image)
+        Me.btnclose.ImageActive = Nothing
+        Me.btnclose.Location = New System.Drawing.Point(348, 46)
+        Me.btnclose.Name = "btnclose"
+        Me.btnclose.Size = New System.Drawing.Size(24, 24)
+        Me.btnclose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.btnclose.TabIndex = 41
+        Me.btnclose.TabStop = False
+        Me.btnclose.Zoom = 10
+        '
+        'txtTimKiemThuoc
+        '
+        Me.txtTimKiemThuoc.Location = New System.Drawing.Point(89, 46)
+        Me.txtTimKiemThuoc.Multiline = True
+        Me.txtTimKiemThuoc.Name = "txtTimKiemThuoc"
+        Me.txtTimKiemThuoc.Size = New System.Drawing.Size(253, 24)
+        Me.txtTimKiemThuoc.TabIndex = 70
+        '
+        'BunifuCustomLabel1
+        '
+        Me.BunifuCustomLabel1.AutoSize = True
+        Me.BunifuCustomLabel1.ForeColor = System.Drawing.Color.Black
+        Me.BunifuCustomLabel1.Location = New System.Drawing.Point(86, 30)
+        Me.BunifuCustomLabel1.Name = "BunifuCustomLabel1"
+        Me.BunifuCustomLabel1.Size = New System.Drawing.Size(84, 13)
+        Me.BunifuCustomLabel1.TabIndex = 71
+        Me.BunifuCustomLabel1.Text = "Tìm Kiếm Thuốc"
+        '
         'FormThuoc
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Controls.Add(Me.BunifuCustomLabel1)
+        Me.Controls.Add(Me.txtTimKiemThuoc)
+        Me.Controls.Add(Me.btnclose)
         Me.Controls.Add(Me.dgvThuoc)
         Me.Controls.Add(Me.txtMaThuoc)
         Me.Controls.Add(Me.btnCapNhat)
         Me.Controls.Add(Me.btnNew)
-        Me.Controls.Add(Me.btnSua)
         Me.Controls.Add(Me.btnXoa)
         Me.Controls.Add(Me.btnThem)
         Me.Controls.Add(Me.lbGiaBan)
@@ -511,6 +528,7 @@ Partial Class FormThuoc
         Me.Name = "FormThuoc"
         Me.Size = New System.Drawing.Size(1117, 632)
         CType(Me.dgvThuoc, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btnclose, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -541,10 +559,11 @@ Partial Class FormThuoc
     Friend WithEvents lbGiaBan As System.Windows.Forms.Label
     Friend WithEvents btnThem As Bunifu.Framework.UI.BunifuTileButton
     Friend WithEvents btnXoa As Bunifu.Framework.UI.BunifuTileButton
-    Friend WithEvents btnSua As Bunifu.Framework.UI.BunifuTileButton
     Friend WithEvents btnNew As Bunifu.Framework.UI.BunifuTileButton
     Friend WithEvents btnCapNhat As Bunifu.Framework.UI.BunifuTileButton
     Friend WithEvents txtMaThuoc As Bunifu.Framework.UI.BunifuMaterialTextbox
     Friend WithEvents dgvThuoc As Bunifu.Framework.UI.BunifuCustomDataGrid
-
+    Friend WithEvents btnclose As Bunifu.Framework.UI.BunifuImageButton
+    Friend WithEvents txtTimKiemThuoc As TextBox
+    Friend WithEvents BunifuCustomLabel1 As Bunifu.Framework.UI.BunifuCustomLabel
 End Class

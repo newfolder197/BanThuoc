@@ -1,9 +1,9 @@
 ﻿Public Class Form1
 
-    
-    Private Sub btnclose_Click(sender As Object, e As EventArgs) Handles btnclose.Click
 
+    Private Sub btnclose_Click(sender As Object, e As EventArgs) Handles btnclose.Click
         Try
+            Form2.Close()
             Me.Close()
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
@@ -43,16 +43,25 @@
     End Sub
 
     Private Sub btnCTHDNhap_Click(sender As Object, e As EventArgs) Handles btnCTHDNhap.Click
-        FormCTHDNhap1.BringToFront()
+        MsgBox("Trước Tiên Hãy Ghé Thăm Hóa Đơn Nhập ->Detail Để ra CTHD Nhập Bạn Nhé !", vbOKOnly + vbInformation, "Warning")
 
     End Sub
+
 
     Private Sub btnCTHDXuat_Click(sender As Object, e As EventArgs) Handles btnCTHDXuat.Click
-        FormCTHDXuat1.BringToFront()
-
+        MsgBox("Trước Tiên Hãy Ghé Thăm Hóa Đơn Nhập ->Detail Để ra CTHD Nhập Bạn Nhé !", vbOKOnly + vbInformation, "Warning")
     End Sub
 
-    Private Sub FormCTHDXuat1_Load(sender As Object, e As EventArgs) Handles FormCTHDXuat1.Load
+    Private Sub btnHome_Click(sender As Object, e As EventArgs) Handles btnHome.Click
+        FormHome1.BringToFront()
+    End Sub
+
+    Private Sub BunifuFlatButton1_Click(sender As Object, e As EventArgs) Handles BunifuFlatButton1.Click
+        FormThongKe1.BringToFront()
+    End Sub
+
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        FormHome1.BringToFront()
 
     End Sub
 End Class

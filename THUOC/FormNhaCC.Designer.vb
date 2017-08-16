@@ -26,6 +26,7 @@ Partial Class FormNhaCC
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormNhaCC))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lbMaNhaCC = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -37,7 +38,6 @@ Partial Class FormNhaCC
         Me.Label7 = New System.Windows.Forms.Label()
         Me.txtSDT = New Bunifu.Framework.UI.BunifuMaterialTextbox()
         Me.lbSDT = New System.Windows.Forms.Label()
-        Me.btnSua = New Bunifu.Framework.UI.BunifuTileButton()
         Me.btnXoa = New Bunifu.Framework.UI.BunifuTileButton()
         Me.btnThem = New Bunifu.Framework.UI.BunifuTileButton()
         Me.btnNew = New Bunifu.Framework.UI.BunifuTileButton()
@@ -47,9 +47,13 @@ Partial Class FormNhaCC
         Me.THUOCDataSet = New THUOC.THUOCDataSet()
         Me.NhaccBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.NhaccTableAdapter = New THUOC.THUOCDataSetTableAdapters.nhaccTableAdapter()
+        Me.btndelsearch = New Bunifu.Framework.UI.BunifuImageButton()
+        Me.txtTimKiemNCC = New System.Windows.Forms.TextBox()
+        Me.BunifuCustomLabel1 = New Bunifu.Framework.UI.BunifuCustomLabel()
         CType(Me.dgvNhaCC, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.THUOCDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NhaccBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.btndelsearch, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -98,7 +102,7 @@ Partial Class FormNhaCC
         Me.txtTenNhaCC.Margin = New System.Windows.Forms.Padding(4)
         Me.txtTenNhaCC.Name = "txtTenNhaCC"
         Me.txtTenNhaCC.Size = New System.Drawing.Size(370, 34)
-        Me.txtTenNhaCC.TabIndex = 4
+        Me.txtTenNhaCC.TabIndex = 3
         Me.txtTenNhaCC.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         '
         'lbTenNhaCC
@@ -137,7 +141,7 @@ Partial Class FormNhaCC
         Me.txtDiaChi.Margin = New System.Windows.Forms.Padding(4)
         Me.txtDiaChi.Name = "txtDiaChi"
         Me.txtDiaChi.Size = New System.Drawing.Size(370, 34)
-        Me.txtDiaChi.TabIndex = 7
+        Me.txtDiaChi.TabIndex = 4
         Me.txtDiaChi.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         '
         'lbDiaChi
@@ -176,7 +180,7 @@ Partial Class FormNhaCC
         Me.txtSDT.Margin = New System.Windows.Forms.Padding(4)
         Me.txtSDT.Name = "txtSDT"
         Me.txtSDT.Size = New System.Drawing.Size(370, 34)
-        Me.txtSDT.TabIndex = 10
+        Me.txtSDT.TabIndex = 5
         Me.txtSDT.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         '
         'lbSDT
@@ -188,25 +192,6 @@ Partial Class FormNhaCC
         Me.lbSDT.Size = New System.Drawing.Size(55, 13)
         Me.lbSDT.TabIndex = 11
         Me.lbSDT.Text = "thong bao"
-        '
-        'btnSua
-        '
-        Me.btnSua.BackColor = System.Drawing.Color.SeaGreen
-        Me.btnSua.color = System.Drawing.Color.SeaGreen
-        Me.btnSua.colorActive = System.Drawing.Color.MediumSeaGreen
-        Me.btnSua.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnSua.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSua.ForeColor = System.Drawing.Color.White
-        Me.btnSua.Image = CType(resources.GetObject("btnSua.Image"), System.Drawing.Image)
-        Me.btnSua.ImagePosition = 0
-        Me.btnSua.ImageZoom = 50
-        Me.btnSua.LabelPosition = 26
-        Me.btnSua.LabelText = "Sửa"
-        Me.btnSua.Location = New System.Drawing.Point(513, 412)
-        Me.btnSua.Margin = New System.Windows.Forms.Padding(6)
-        Me.btnSua.Name = "btnSua"
-        Me.btnSua.Size = New System.Drawing.Size(71, 77)
-        Me.btnSua.TabIndex = 34
         '
         'btnXoa
         '
@@ -221,11 +206,11 @@ Partial Class FormNhaCC
         Me.btnXoa.ImageZoom = 50
         Me.btnXoa.LabelPosition = 26
         Me.btnXoa.LabelText = "Xóa"
-        Me.btnXoa.Location = New System.Drawing.Point(622, 412)
+        Me.btnXoa.Location = New System.Drawing.Point(484, 412)
         Me.btnXoa.Margin = New System.Windows.Forms.Padding(6)
         Me.btnXoa.Name = "btnXoa"
         Me.btnXoa.Size = New System.Drawing.Size(71, 77)
-        Me.btnXoa.TabIndex = 35
+        Me.btnXoa.TabIndex = 6
         '
         'btnThem
         '
@@ -240,11 +225,11 @@ Partial Class FormNhaCC
         Me.btnThem.ImageZoom = 50
         Me.btnThem.LabelPosition = 26
         Me.btnThem.LabelText = "Thêm"
-        Me.btnThem.Location = New System.Drawing.Point(739, 412)
+        Me.btnThem.Location = New System.Drawing.Point(637, 412)
         Me.btnThem.Margin = New System.Windows.Forms.Padding(6)
         Me.btnThem.Name = "btnThem"
         Me.btnThem.Size = New System.Drawing.Size(71, 77)
-        Me.btnThem.TabIndex = 36
+        Me.btnThem.TabIndex = 7
         '
         'btnNew
         '
@@ -259,11 +244,11 @@ Partial Class FormNhaCC
         Me.btnNew.ImageZoom = 50
         Me.btnNew.LabelPosition = 26
         Me.btnNew.LabelText = "New"
-        Me.btnNew.Location = New System.Drawing.Point(845, 412)
+        Me.btnNew.Location = New System.Drawing.Point(792, 412)
         Me.btnNew.Margin = New System.Windows.Forms.Padding(6)
         Me.btnNew.Name = "btnNew"
         Me.btnNew.Size = New System.Drawing.Size(71, 77)
-        Me.btnNew.TabIndex = 37
+        Me.btnNew.TabIndex = 8
         '
         'btnCapNhat
         '
@@ -300,7 +285,7 @@ Partial Class FormNhaCC
         Me.txtMaNhaCC.Margin = New System.Windows.Forms.Padding(4)
         Me.txtMaNhaCC.Name = "txtMaNhaCC"
         Me.txtMaNhaCC.Size = New System.Drawing.Size(370, 34)
-        Me.txtMaNhaCC.TabIndex = 40
+        Me.txtMaNhaCC.TabIndex = 2
         Me.txtMaNhaCC.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         '
         'dgvNhaCC
@@ -326,15 +311,24 @@ Partial Class FormNhaCC
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgvNhaCC.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvNhaCC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvNhaCC.DefaultCellStyle = DataGridViewCellStyle3
         Me.dgvNhaCC.DoubleBuffered = True
         Me.dgvNhaCC.EnableHeadersVisualStyles = False
+        Me.dgvNhaCC.GridColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.dgvNhaCC.HeaderBgColor = System.Drawing.Color.SeaGreen
         Me.dgvNhaCC.HeaderForeColor = System.Drawing.Color.Black
         Me.dgvNhaCC.Location = New System.Drawing.Point(484, 82)
         Me.dgvNhaCC.Name = "dgvNhaCC"
         Me.dgvNhaCC.ReadOnly = True
         Me.dgvNhaCC.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        Me.dgvNhaCC.Size = New System.Drawing.Size(595, 249)
+        Me.dgvNhaCC.Size = New System.Drawing.Size(595, 287)
         Me.dgvNhaCC.TabIndex = 41
         '
         'THUOCDataSet
@@ -351,18 +345,51 @@ Partial Class FormNhaCC
         '
         Me.NhaccTableAdapter.ClearBeforeFill = True
         '
+        'btndelsearch
+        '
+        Me.btndelsearch.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.btndelsearch.Image = CType(resources.GetObject("btndelsearch.Image"), System.Drawing.Image)
+        Me.btndelsearch.ImageActive = Nothing
+        Me.btndelsearch.Location = New System.Drawing.Point(456, 52)
+        Me.btndelsearch.Name = "btndelsearch"
+        Me.btndelsearch.Size = New System.Drawing.Size(24, 24)
+        Me.btndelsearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.btndelsearch.TabIndex = 68
+        Me.btndelsearch.TabStop = False
+        Me.btndelsearch.Zoom = 10
+        '
+        'txtTimKiemNCC
+        '
+        Me.txtTimKiemNCC.Location = New System.Drawing.Point(80, 52)
+        Me.txtTimKiemNCC.Multiline = True
+        Me.txtTimKiemNCC.Name = "txtTimKiemNCC"
+        Me.txtTimKiemNCC.Size = New System.Drawing.Size(370, 24)
+        Me.txtTimKiemNCC.TabIndex = 69
+        '
+        'BunifuCustomLabel1
+        '
+        Me.BunifuCustomLabel1.AutoSize = True
+        Me.BunifuCustomLabel1.ForeColor = System.Drawing.Color.Black
+        Me.BunifuCustomLabel1.Location = New System.Drawing.Point(77, 36)
+        Me.BunifuCustomLabel1.Name = "BunifuCustomLabel1"
+        Me.BunifuCustomLabel1.Size = New System.Drawing.Size(123, 13)
+        Me.BunifuCustomLabel1.TabIndex = 70
+        Me.BunifuCustomLabel1.Text = "Tìm Kiếm Nhà Cung Cấp"
+        '
         'FormNhaCC
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Controls.Add(Me.BunifuCustomLabel1)
+        Me.Controls.Add(Me.txtTimKiemNCC)
+        Me.Controls.Add(Me.btndelsearch)
         Me.Controls.Add(Me.dgvNhaCC)
         Me.Controls.Add(Me.txtMaNhaCC)
         Me.Controls.Add(Me.btnCapNhat)
         Me.Controls.Add(Me.btnNew)
         Me.Controls.Add(Me.btnThem)
         Me.Controls.Add(Me.btnXoa)
-        Me.Controls.Add(Me.btnSua)
         Me.Controls.Add(Me.lbSDT)
         Me.Controls.Add(Me.txtSDT)
         Me.Controls.Add(Me.Label7)
@@ -380,6 +407,7 @@ Partial Class FormNhaCC
         CType(Me.dgvNhaCC, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.THUOCDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NhaccBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btndelsearch, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -395,7 +423,6 @@ Partial Class FormNhaCC
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents txtSDT As Bunifu.Framework.UI.BunifuMaterialTextbox
     Friend WithEvents lbSDT As System.Windows.Forms.Label
-    Friend WithEvents btnSua As Bunifu.Framework.UI.BunifuTileButton
     Friend WithEvents btnXoa As Bunifu.Framework.UI.BunifuTileButton
     Friend WithEvents btnThem As Bunifu.Framework.UI.BunifuTileButton
     Friend WithEvents btnNew As Bunifu.Framework.UI.BunifuTileButton
@@ -405,5 +432,7 @@ Partial Class FormNhaCC
     Friend WithEvents NhaccBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents THUOCDataSet As THUOC.THUOCDataSet
     Friend WithEvents NhaccTableAdapter As THUOC.THUOCDataSetTableAdapters.nhaccTableAdapter
-
+    Friend WithEvents btndelsearch As Bunifu.Framework.UI.BunifuImageButton
+    Friend WithEvents txtTimKiemNCC As TextBox
+    Friend WithEvents BunifuCustomLabel1 As Bunifu.Framework.UI.BunifuCustomLabel
 End Class

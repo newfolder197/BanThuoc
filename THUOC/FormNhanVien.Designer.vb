@@ -54,14 +54,18 @@ Partial Class FormNhanVien
         Me.Label19 = New System.Windows.Forms.Label()
         Me.txtMatKhau = New Bunifu.Framework.UI.BunifuMaterialTextbox()
         Me.lbMatKhau = New System.Windows.Forms.Label()
-        Me.btnSua = New Bunifu.Framework.UI.BunifuTileButton()
         Me.btnXoa = New Bunifu.Framework.UI.BunifuTileButton()
         Me.btnThem = New Bunifu.Framework.UI.BunifuTileButton()
         Me.btnNew = New Bunifu.Framework.UI.BunifuTileButton()
         Me.btnCapNhat = New Bunifu.Framework.UI.BunifuTileButton()
         Me.dgvNhanVien = New Bunifu.Framework.UI.BunifuCustomDataGrid()
         Me.txtNamSinh = New Bunifu.Framework.UI.BunifuMaterialTextbox()
+        Me.btndelsearch = New Bunifu.Framework.UI.BunifuImageButton()
+        Me.BunifuCustomLabel1 = New Bunifu.Framework.UI.BunifuCustomLabel()
+        Me.txtTimKiemNV = New System.Windows.Forms.TextBox()
+        Me.btnXuatExcel = New Bunifu.Framework.UI.BunifuFlatButton()
         CType(Me.dgvNhanVien, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.btndelsearch, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'txtMaNhanVien
@@ -425,25 +429,6 @@ Partial Class FormNhanVien
         Me.lbMatKhau.TabIndex = 29
         Me.lbMatKhau.Text = "thong bao"
         '
-        'btnSua
-        '
-        Me.btnSua.BackColor = System.Drawing.Color.SeaGreen
-        Me.btnSua.color = System.Drawing.Color.SeaGreen
-        Me.btnSua.colorActive = System.Drawing.Color.MediumSeaGreen
-        Me.btnSua.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnSua.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSua.ForeColor = System.Drawing.Color.White
-        Me.btnSua.Image = CType(resources.GetObject("btnSua.Image"), System.Drawing.Image)
-        Me.btnSua.ImagePosition = 0
-        Me.btnSua.ImageZoom = 50
-        Me.btnSua.LabelPosition = 26
-        Me.btnSua.LabelText = "Sửa"
-        Me.btnSua.Location = New System.Drawing.Point(485, 519)
-        Me.btnSua.Margin = New System.Windows.Forms.Padding(6)
-        Me.btnSua.Name = "btnSua"
-        Me.btnSua.Size = New System.Drawing.Size(71, 77)
-        Me.btnSua.TabIndex = 34
-        '
         'btnXoa
         '
         Me.btnXoa.BackColor = System.Drawing.Color.SeaGreen
@@ -457,7 +442,7 @@ Partial Class FormNhanVien
         Me.btnXoa.ImageZoom = 50
         Me.btnXoa.LabelPosition = 26
         Me.btnXoa.LabelText = "Xóa"
-        Me.btnXoa.Location = New System.Drawing.Point(586, 519)
+        Me.btnXoa.Location = New System.Drawing.Point(485, 519)
         Me.btnXoa.Margin = New System.Windows.Forms.Padding(6)
         Me.btnXoa.Name = "btnXoa"
         Me.btnXoa.Size = New System.Drawing.Size(71, 77)
@@ -476,7 +461,7 @@ Partial Class FormNhanVien
         Me.btnThem.ImageZoom = 50
         Me.btnThem.LabelPosition = 26
         Me.btnThem.LabelText = "Thêm"
-        Me.btnThem.Location = New System.Drawing.Point(703, 519)
+        Me.btnThem.Location = New System.Drawing.Point(639, 519)
         Me.btnThem.Margin = New System.Windows.Forms.Padding(6)
         Me.btnThem.Name = "btnThem"
         Me.btnThem.Size = New System.Drawing.Size(71, 77)
@@ -495,7 +480,7 @@ Partial Class FormNhanVien
         Me.btnNew.ImageZoom = 50
         Me.btnNew.LabelPosition = 26
         Me.btnNew.LabelText = "New"
-        Me.btnNew.Location = New System.Drawing.Point(817, 519)
+        Me.btnNew.Location = New System.Drawing.Point(784, 519)
         Me.btnNew.Margin = New System.Windows.Forms.Padding(6)
         Me.btnNew.Name = "btnNew"
         Me.btnNew.Size = New System.Drawing.Size(71, 77)
@@ -570,17 +555,85 @@ Partial Class FormNhanVien
         Me.txtNamSinh.TabIndex = 9
         Me.txtNamSinh.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         '
+        'btndelsearch
+        '
+        Me.btndelsearch.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.btndelsearch.Image = CType(resources.GetObject("btndelsearch.Image"), System.Drawing.Image)
+        Me.btndelsearch.ImageActive = Nothing
+        Me.btndelsearch.Location = New System.Drawing.Point(423, 56)
+        Me.btndelsearch.Name = "btndelsearch"
+        Me.btndelsearch.Size = New System.Drawing.Size(24, 24)
+        Me.btndelsearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.btndelsearch.TabIndex = 68
+        Me.btndelsearch.TabStop = False
+        Me.btndelsearch.Zoom = 10
+        '
+        'BunifuCustomLabel1
+        '
+        Me.BunifuCustomLabel1.AutoSize = True
+        Me.BunifuCustomLabel1.ForeColor = System.Drawing.Color.Black
+        Me.BunifuCustomLabel1.Location = New System.Drawing.Point(74, 40)
+        Me.BunifuCustomLabel1.Name = "BunifuCustomLabel1"
+        Me.BunifuCustomLabel1.Size = New System.Drawing.Size(103, 13)
+        Me.BunifuCustomLabel1.TabIndex = 72
+        Me.BunifuCustomLabel1.Text = "Tìm Kiếm Nhân Viên"
+        '
+        'txtTimKiemNV
+        '
+        Me.txtTimKiemNV.Location = New System.Drawing.Point(77, 56)
+        Me.txtTimKiemNV.Multiline = True
+        Me.txtTimKiemNV.Name = "txtTimKiemNV"
+        Me.txtTimKiemNV.Size = New System.Drawing.Size(340, 24)
+        Me.txtTimKiemNV.TabIndex = 71
+        '
+        'btnXuatExcel
+        '
+        Me.btnXuatExcel.Activecolor = System.Drawing.Color.Gray
+        Me.btnXuatExcel.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.btnXuatExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnXuatExcel.BorderRadius = 3
+        Me.btnXuatExcel.ButtonText = "Excel"
+        Me.btnXuatExcel.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnXuatExcel.DisabledColor = System.Drawing.Color.Gray
+        Me.btnXuatExcel.Iconcolor = System.Drawing.Color.Transparent
+        Me.btnXuatExcel.Iconimage = CType(resources.GetObject("btnXuatExcel.Iconimage"), System.Drawing.Image)
+        Me.btnXuatExcel.Iconimage_right = Nothing
+        Me.btnXuatExcel.Iconimage_right_Selected = Nothing
+        Me.btnXuatExcel.Iconimage_Selected = Nothing
+        Me.btnXuatExcel.IconMarginLeft = 0
+        Me.btnXuatExcel.IconMarginRight = 0
+        Me.btnXuatExcel.IconRightVisible = True
+        Me.btnXuatExcel.IconRightZoom = 0R
+        Me.btnXuatExcel.IconVisible = True
+        Me.btnXuatExcel.IconZoom = 90.0R
+        Me.btnXuatExcel.IsTab = False
+        Me.btnXuatExcel.Location = New System.Drawing.Point(931, 400)
+        Me.btnXuatExcel.Name = "btnXuatExcel"
+        Me.btnXuatExcel.Normalcolor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.btnXuatExcel.OnHovercolor = System.Drawing.Color.Silver
+        Me.btnXuatExcel.OnHoverTextColor = System.Drawing.Color.WhiteSmoke
+        Me.btnXuatExcel.selected = False
+        Me.btnXuatExcel.Size = New System.Drawing.Size(104, 62)
+        Me.btnXuatExcel.TabIndex = 73
+        Me.btnXuatExcel.Text = "Excel"
+        Me.btnXuatExcel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnXuatExcel.Textcolor = System.Drawing.Color.Black
+        Me.btnXuatExcel.TextFont = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        '
         'FormNhanVien
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Controls.Add(Me.btnXuatExcel)
+        Me.Controls.Add(Me.BunifuCustomLabel1)
+        Me.Controls.Add(Me.txtTimKiemNV)
+        Me.Controls.Add(Me.btndelsearch)
         Me.Controls.Add(Me.dgvNhanVien)
         Me.Controls.Add(Me.btnCapNhat)
         Me.Controls.Add(Me.btnNew)
         Me.Controls.Add(Me.btnThem)
         Me.Controls.Add(Me.btnXoa)
-        Me.Controls.Add(Me.btnSua)
         Me.Controls.Add(Me.lbMatKhau)
         Me.Controls.Add(Me.txtMatKhau)
         Me.Controls.Add(Me.Label19)
@@ -614,6 +667,7 @@ Partial Class FormNhanVien
         Me.Name = "FormNhanVien"
         Me.Size = New System.Drawing.Size(1117, 632)
         CType(Me.dgvNhanVien, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btndelsearch, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -647,12 +701,14 @@ Partial Class FormNhanVien
     Friend WithEvents Label19 As System.Windows.Forms.Label
     Friend WithEvents txtMatKhau As Bunifu.Framework.UI.BunifuMaterialTextbox
     Friend WithEvents lbMatKhau As System.Windows.Forms.Label
-    Friend WithEvents btnSua As Bunifu.Framework.UI.BunifuTileButton
     Friend WithEvents btnXoa As Bunifu.Framework.UI.BunifuTileButton
     Friend WithEvents btnThem As Bunifu.Framework.UI.BunifuTileButton
     Friend WithEvents btnNew As Bunifu.Framework.UI.BunifuTileButton
     Friend WithEvents btnCapNhat As Bunifu.Framework.UI.BunifuTileButton
     Friend WithEvents dgvNhanVien As Bunifu.Framework.UI.BunifuCustomDataGrid
     Friend WithEvents txtNamSinh As Bunifu.Framework.UI.BunifuMaterialTextbox
-
+    Friend WithEvents btndelsearch As Bunifu.Framework.UI.BunifuImageButton
+    Friend WithEvents BunifuCustomLabel1 As Bunifu.Framework.UI.BunifuCustomLabel
+    Friend WithEvents txtTimKiemNV As TextBox
+    Friend WithEvents btnXuatExcel As Bunifu.Framework.UI.BunifuFlatButton
 End Class

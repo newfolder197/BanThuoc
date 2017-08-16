@@ -32,7 +32,6 @@ Partial Class FormHDNhap
         Me.btnNew = New Bunifu.Framework.UI.BunifuTileButton()
         Me.btnThem = New Bunifu.Framework.UI.BunifuTileButton()
         Me.btnXoa = New Bunifu.Framework.UI.BunifuTileButton()
-        Me.btnSua = New Bunifu.Framework.UI.BunifuTileButton()
         Me.lbTongTienNhap = New System.Windows.Forms.Label()
         Me.txtTongTienNhap = New Bunifu.Framework.UI.BunifuMaterialTextbox()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -44,7 +43,12 @@ Partial Class FormHDNhap
         Me.cbMaNhaCC = New System.Windows.Forms.ComboBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.dgvHDNhap = New Bunifu.Framework.UI.BunifuCustomDataGrid()
+        Me.btndelsearch = New Bunifu.Framework.UI.BunifuImageButton()
+        Me.BunifuCustomLabel1 = New Bunifu.Framework.UI.BunifuCustomLabel()
+        Me.txtTimKiemHDNhap = New System.Windows.Forms.TextBox()
+        Me.FormCTHDNhap1 = New THUOC.FormCTHDNhap()
         CType(Me.dgvHDNhap, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.btndelsearch, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnDetail
@@ -113,7 +117,7 @@ Partial Class FormHDNhap
         Me.btnNew.ImageZoom = 50
         Me.btnNew.LabelPosition = 26
         Me.btnNew.LabelText = "New"
-        Me.btnNew.Location = New System.Drawing.Point(820, 477)
+        Me.btnNew.Location = New System.Drawing.Point(781, 477)
         Me.btnNew.Margin = New System.Windows.Forms.Padding(6)
         Me.btnNew.Name = "btnNew"
         Me.btnNew.Size = New System.Drawing.Size(71, 77)
@@ -132,7 +136,7 @@ Partial Class FormHDNhap
         Me.btnThem.ImageZoom = 50
         Me.btnThem.LabelPosition = 26
         Me.btnThem.LabelText = "Thêm"
-        Me.btnThem.Location = New System.Drawing.Point(714, 477)
+        Me.btnThem.Location = New System.Drawing.Point(649, 477)
         Me.btnThem.Margin = New System.Windows.Forms.Padding(6)
         Me.btnThem.Name = "btnThem"
         Me.btnThem.Size = New System.Drawing.Size(71, 77)
@@ -151,30 +155,11 @@ Partial Class FormHDNhap
         Me.btnXoa.ImageZoom = 50
         Me.btnXoa.LabelPosition = 26
         Me.btnXoa.LabelText = "Xóa"
-        Me.btnXoa.Location = New System.Drawing.Point(614, 477)
+        Me.btnXoa.Location = New System.Drawing.Point(513, 477)
         Me.btnXoa.Margin = New System.Windows.Forms.Padding(6)
         Me.btnXoa.Name = "btnXoa"
         Me.btnXoa.Size = New System.Drawing.Size(71, 77)
         Me.btnXoa.TabIndex = 55
-        '
-        'btnSua
-        '
-        Me.btnSua.BackColor = System.Drawing.Color.SeaGreen
-        Me.btnSua.color = System.Drawing.Color.SeaGreen
-        Me.btnSua.colorActive = System.Drawing.Color.MediumSeaGreen
-        Me.btnSua.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnSua.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSua.ForeColor = System.Drawing.Color.White
-        Me.btnSua.Image = CType(resources.GetObject("btnSua.Image"), System.Drawing.Image)
-        Me.btnSua.ImagePosition = 0
-        Me.btnSua.ImageZoom = 50
-        Me.btnSua.LabelPosition = 26
-        Me.btnSua.LabelText = "Sửa"
-        Me.btnSua.Location = New System.Drawing.Point(513, 477)
-        Me.btnSua.Margin = New System.Windows.Forms.Padding(6)
-        Me.btnSua.Name = "btnSua"
-        Me.btnSua.Size = New System.Drawing.Size(71, 77)
-        Me.btnSua.TabIndex = 54
         '
         'lbTongTienNhap
         '
@@ -318,11 +303,54 @@ Partial Class FormHDNhap
         Me.dgvHDNhap.Size = New System.Drawing.Size(525, 311)
         Me.dgvHDNhap.TabIndex = 64
         '
+        'btndelsearch
+        '
+        Me.btndelsearch.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.btndelsearch.Image = CType(resources.GetObject("btndelsearch.Image"), System.Drawing.Image)
+        Me.btndelsearch.ImageActive = Nothing
+        Me.btndelsearch.Location = New System.Drawing.Point(427, 52)
+        Me.btndelsearch.Name = "btndelsearch"
+        Me.btndelsearch.Size = New System.Drawing.Size(24, 24)
+        Me.btndelsearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.btndelsearch.TabIndex = 66
+        Me.btndelsearch.TabStop = False
+        Me.btndelsearch.Zoom = 10
+        '
+        'BunifuCustomLabel1
+        '
+        Me.BunifuCustomLabel1.AutoSize = True
+        Me.BunifuCustomLabel1.ForeColor = System.Drawing.Color.Black
+        Me.BunifuCustomLabel1.Location = New System.Drawing.Point(78, 36)
+        Me.BunifuCustomLabel1.Name = "BunifuCustomLabel1"
+        Me.BunifuCustomLabel1.Size = New System.Drawing.Size(125, 13)
+        Me.BunifuCustomLabel1.TabIndex = 74
+        Me.BunifuCustomLabel1.Text = "Tìm Kiếm Hóa Đơn Nhập"
+        '
+        'txtTimKiemHDNhap
+        '
+        Me.txtTimKiemHDNhap.Location = New System.Drawing.Point(81, 52)
+        Me.txtTimKiemHDNhap.Multiline = True
+        Me.txtTimKiemHDNhap.Name = "txtTimKiemHDNhap"
+        Me.txtTimKiemHDNhap.Size = New System.Drawing.Size(340, 24)
+        Me.txtTimKiemHDNhap.TabIndex = 73
+        '
+        'FormCTHDNhap1
+        '
+        Me.FormCTHDNhap1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.FormCTHDNhap1.Location = New System.Drawing.Point(0, 0)
+        Me.FormCTHDNhap1.Name = "FormCTHDNhap1"
+        Me.FormCTHDNhap1.Size = New System.Drawing.Size(1117, 632)
+        Me.FormCTHDNhap1.TabIndex = 75
+        '
         'FormHDNhap
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Controls.Add(Me.FormCTHDNhap1)
+        Me.Controls.Add(Me.BunifuCustomLabel1)
+        Me.Controls.Add(Me.txtTimKiemHDNhap)
+        Me.Controls.Add(Me.btndelsearch)
         Me.Controls.Add(Me.dgvHDNhap)
         Me.Controls.Add(Me.cbMaNhaCC)
         Me.Controls.Add(Me.Label7)
@@ -333,7 +361,6 @@ Partial Class FormHDNhap
         Me.Controls.Add(Me.btnNew)
         Me.Controls.Add(Me.btnThem)
         Me.Controls.Add(Me.btnXoa)
-        Me.Controls.Add(Me.btnSua)
         Me.Controls.Add(Me.lbTongTienNhap)
         Me.Controls.Add(Me.txtTongTienNhap)
         Me.Controls.Add(Me.Label9)
@@ -345,6 +372,7 @@ Partial Class FormHDNhap
         Me.Name = "FormHDNhap"
         Me.Size = New System.Drawing.Size(1117, 632)
         CType(Me.dgvHDNhap, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btndelsearch, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -356,7 +384,6 @@ Partial Class FormHDNhap
     Friend WithEvents btnNew As Bunifu.Framework.UI.BunifuTileButton
     Friend WithEvents btnThem As Bunifu.Framework.UI.BunifuTileButton
     Friend WithEvents btnXoa As Bunifu.Framework.UI.BunifuTileButton
-    Friend WithEvents btnSua As Bunifu.Framework.UI.BunifuTileButton
     Friend WithEvents lbTongTienNhap As System.Windows.Forms.Label
     Friend WithEvents txtTongTienNhap As Bunifu.Framework.UI.BunifuMaterialTextbox
     Friend WithEvents Label9 As System.Windows.Forms.Label
@@ -368,5 +395,8 @@ Partial Class FormHDNhap
     Friend WithEvents cbMaNhaCC As System.Windows.Forms.ComboBox
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents dgvHDNhap As Bunifu.Framework.UI.BunifuCustomDataGrid
-
+    Friend WithEvents btndelsearch As Bunifu.Framework.UI.BunifuImageButton
+    Friend WithEvents BunifuCustomLabel1 As Bunifu.Framework.UI.BunifuCustomLabel
+    Friend WithEvents txtTimKiemHDNhap As TextBox
+    Friend WithEvents FormCTHDNhap1 As FormCTHDNhap
 End Class

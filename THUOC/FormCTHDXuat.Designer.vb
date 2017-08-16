@@ -38,12 +38,21 @@ Partial Class FormCTHDXuat
         Me.txtSoCTXuat = New Bunifu.Framework.UI.BunifuMaterialTextbox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btnInHoaDonXuat = New Bunifu.Framework.UI.BunifuThinButton2()
-        Me.btnSua = New Bunifu.Framework.UI.BunifuTileButton()
         Me.btnXoa = New Bunifu.Framework.UI.BunifuTileButton()
         Me.btnThem = New Bunifu.Framework.UI.BunifuTileButton()
         Me.btnNew = New Bunifu.Framework.UI.BunifuTileButton()
         Me.btnCapNhat = New Bunifu.Framework.UI.BunifuTileButton()
+        Me.txtTongTienXuat = New Bunifu.Framework.UI.BunifuMaterialTextbox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.dtpngayxuat = New System.Windows.Forms.DateTimePicker()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.lbsophieuxuat = New System.Windows.Forms.Label()
+        Me.btnclose = New Bunifu.Framework.UI.BunifuImageButton()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         CType(Me.dgvCTHDXuat, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.btnclose, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lbSoLuongXuat
@@ -226,46 +235,28 @@ Partial Class FormCTHDXuat
         Me.btnInHoaDonXuat.IdleFillColor = System.Drawing.Color.White
         Me.btnInHoaDonXuat.IdleForecolor = System.Drawing.Color.SeaGreen
         Me.btnInHoaDonXuat.IdleLineColor = System.Drawing.Color.SeaGreen
-        Me.btnInHoaDonXuat.Location = New System.Drawing.Point(146, 394)
+        Me.btnInHoaDonXuat.Location = New System.Drawing.Point(659, 347)
         Me.btnInHoaDonXuat.Margin = New System.Windows.Forms.Padding(6, 5, 6, 5)
         Me.btnInHoaDonXuat.Name = "btnInHoaDonXuat"
         Me.btnInHoaDonXuat.Size = New System.Drawing.Size(235, 41)
         Me.btnInHoaDonXuat.TabIndex = 111
         Me.btnInHoaDonXuat.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'btnSua
-        '
-        Me.btnSua.BackColor = System.Drawing.Color.SeaGreen
-        Me.btnSua.color = System.Drawing.Color.SeaGreen
-        Me.btnSua.colorActive = System.Drawing.Color.MediumSeaGreen
-        Me.btnSua.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnSua.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSua.ForeColor = System.Drawing.Color.White
-        Me.btnSua.Image = CType(resources.GetObject("btnSua.Image"), System.Drawing.Image)
-        Me.btnSua.ImagePosition = 0
-        Me.btnSua.ImageZoom = 50
-        Me.btnSua.LabelPosition = 26
-        Me.btnSua.LabelText = "Sửa"
-        Me.btnSua.Location = New System.Drawing.Point(497, 394)
-        Me.btnSua.Margin = New System.Windows.Forms.Padding(6)
-        Me.btnSua.Name = "btnSua"
-        Me.btnSua.Size = New System.Drawing.Size(71, 77)
-        Me.btnSua.TabIndex = 112
-        '
         'btnXoa
         '
         Me.btnXoa.BackColor = System.Drawing.Color.SeaGreen
+        Me.btnXoa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.btnXoa.color = System.Drawing.Color.SeaGreen
         Me.btnXoa.colorActive = System.Drawing.Color.MediumSeaGreen
         Me.btnXoa.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnXoa.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold)
-        Me.btnXoa.ForeColor = System.Drawing.Color.White
+        Me.btnXoa.ForeColor = System.Drawing.Color.Transparent
         Me.btnXoa.Image = CType(resources.GetObject("btnXoa.Image"), System.Drawing.Image)
         Me.btnXoa.ImagePosition = 0
         Me.btnXoa.ImageZoom = 50
         Me.btnXoa.LabelPosition = 26
         Me.btnXoa.LabelText = "Xóa"
-        Me.btnXoa.Location = New System.Drawing.Point(601, 394)
+        Me.btnXoa.Location = New System.Drawing.Point(497, 455)
         Me.btnXoa.Margin = New System.Windows.Forms.Padding(6)
         Me.btnXoa.Name = "btnXoa"
         Me.btnXoa.Size = New System.Drawing.Size(71, 77)
@@ -274,36 +265,38 @@ Partial Class FormCTHDXuat
         'btnThem
         '
         Me.btnThem.BackColor = System.Drawing.Color.SeaGreen
+        Me.btnThem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.btnThem.color = System.Drawing.Color.SeaGreen
         Me.btnThem.colorActive = System.Drawing.Color.MediumSeaGreen
         Me.btnThem.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnThem.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold)
-        Me.btnThem.ForeColor = System.Drawing.Color.White
+        Me.btnThem.ForeColor = System.Drawing.Color.Transparent
         Me.btnThem.Image = CType(resources.GetObject("btnThem.Image"), System.Drawing.Image)
         Me.btnThem.ImagePosition = 0
         Me.btnThem.ImageZoom = 50
         Me.btnThem.LabelPosition = 26
         Me.btnThem.LabelText = "Thêm"
-        Me.btnThem.Location = New System.Drawing.Point(709, 394)
+        Me.btnThem.Location = New System.Drawing.Point(643, 455)
         Me.btnThem.Margin = New System.Windows.Forms.Padding(6)
         Me.btnThem.Name = "btnThem"
-        Me.btnThem.Size = New System.Drawing.Size(71, 77)
+        Me.btnThem.Size = New System.Drawing.Size(75, 77)
         Me.btnThem.TabIndex = 114
         '
         'btnNew
         '
         Me.btnNew.BackColor = System.Drawing.Color.SeaGreen
+        Me.btnNew.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.btnNew.color = System.Drawing.Color.SeaGreen
         Me.btnNew.colorActive = System.Drawing.Color.MediumSeaGreen
         Me.btnNew.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnNew.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold)
-        Me.btnNew.ForeColor = System.Drawing.Color.White
+        Me.btnNew.ForeColor = System.Drawing.Color.Transparent
         Me.btnNew.Image = CType(resources.GetObject("btnNew.Image"), System.Drawing.Image)
         Me.btnNew.ImagePosition = 0
         Me.btnNew.ImageZoom = 50
         Me.btnNew.LabelPosition = 26
         Me.btnNew.LabelText = "New"
-        Me.btnNew.Location = New System.Drawing.Point(826, 394)
+        Me.btnNew.Location = New System.Drawing.Point(800, 455)
         Me.btnNew.Margin = New System.Windows.Forms.Padding(6)
         Me.btnNew.Name = "btnNew"
         Me.btnNew.Size = New System.Drawing.Size(71, 77)
@@ -312,32 +305,129 @@ Partial Class FormCTHDXuat
         'btnCapNhat
         '
         Me.btnCapNhat.BackColor = System.Drawing.Color.SeaGreen
+        Me.btnCapNhat.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.btnCapNhat.color = System.Drawing.Color.SeaGreen
         Me.btnCapNhat.colorActive = System.Drawing.Color.MediumSeaGreen
         Me.btnCapNhat.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnCapNhat.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold)
-        Me.btnCapNhat.ForeColor = System.Drawing.Color.White
+        Me.btnCapNhat.ForeColor = System.Drawing.Color.Transparent
         Me.btnCapNhat.Image = CType(resources.GetObject("btnCapNhat.Image"), System.Drawing.Image)
         Me.btnCapNhat.ImagePosition = 0
         Me.btnCapNhat.ImageZoom = 50
         Me.btnCapNhat.LabelPosition = 26
         Me.btnCapNhat.LabelText = "Cập Nhật"
-        Me.btnCapNhat.Location = New System.Drawing.Point(940, 394)
+        Me.btnCapNhat.Location = New System.Drawing.Point(940, 455)
         Me.btnCapNhat.Margin = New System.Windows.Forms.Padding(7)
         Me.btnCapNhat.Name = "btnCapNhat"
         Me.btnCapNhat.Size = New System.Drawing.Size(114, 77)
         Me.btnCapNhat.TabIndex = 116
+        '
+        'txtTongTienXuat
+        '
+        Me.txtTongTienXuat.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtTongTienXuat.Font = New System.Drawing.Font("Century Gothic", 9.75!)
+        Me.txtTongTienXuat.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.txtTongTienXuat.HintForeColor = System.Drawing.Color.Empty
+        Me.txtTongTienXuat.HintText = ""
+        Me.txtTongTienXuat.isPassword = False
+        Me.txtTongTienXuat.LineFocusedColor = System.Drawing.Color.Blue
+        Me.txtTongTienXuat.LineIdleColor = System.Drawing.Color.Gray
+        Me.txtTongTienXuat.LineMouseHoverColor = System.Drawing.Color.Blue
+        Me.txtTongTienXuat.LineThickness = 3
+        Me.txtTongTienXuat.Location = New System.Drawing.Point(81, 361)
+        Me.txtTongTienXuat.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtTongTienXuat.Name = "txtTongTienXuat"
+        Me.txtTongTienXuat.Size = New System.Drawing.Size(370, 30)
+        Me.txtTongTienXuat.TabIndex = 117
+        Me.txtTongTienXuat.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(78, 344)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(81, 13)
+        Me.Label4.TabIndex = 118
+        Me.Label4.Text = "Tổng Tiền Xuất"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(78, 405)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(57, 13)
+        Me.Label6.TabIndex = 119
+        Me.Label6.Text = "Ngày Xuất"
+        '
+        'dtpngayxuat
+        '
+        Me.dtpngayxuat.Location = New System.Drawing.Point(81, 421)
+        Me.dtpngayxuat.Name = "dtpngayxuat"
+        Me.dtpngayxuat.Size = New System.Drawing.Size(370, 20)
+        Me.dtpngayxuat.TabIndex = 120
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(78, 54)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(136, 17)
+        Me.Label7.TabIndex = 121
+        Me.Label7.Text = "Chi Tiết Phiếu Xuất :"
+        '
+        'lbsophieuxuat
+        '
+        Me.lbsophieuxuat.AutoSize = True
+        Me.lbsophieuxuat.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbsophieuxuat.ForeColor = System.Drawing.Color.Blue
+        Me.lbsophieuxuat.Location = New System.Drawing.Point(220, 50)
+        Me.lbsophieuxuat.Name = "lbsophieuxuat"
+        Me.lbsophieuxuat.Size = New System.Drawing.Size(17, 21)
+        Me.lbsophieuxuat.TabIndex = 122
+        Me.lbsophieuxuat.Text = "s"
+        '
+        'btnclose
+        '
+        Me.btnclose.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.btnclose.Image = CType(resources.GetObject("btnclose.Image"), System.Drawing.Image)
+        Me.btnclose.ImageActive = Nothing
+        Me.btnclose.Location = New System.Drawing.Point(1077, 12)
+        Me.btnclose.Name = "btnclose"
+        Me.btnclose.Size = New System.Drawing.Size(24, 24)
+        Me.btnclose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.btnclose.TabIndex = 123
+        Me.btnclose.TabStop = False
+        Me.btnclose.Zoom = 10
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.White
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(848, 355)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(23, 25)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 129
+        Me.PictureBox1.TabStop = False
         '
         'FormCTHDXuat
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.btnclose)
+        Me.Controls.Add(Me.lbsophieuxuat)
+        Me.Controls.Add(Me.Label7)
+        Me.Controls.Add(Me.dtpngayxuat)
+        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.txtTongTienXuat)
         Me.Controls.Add(Me.btnCapNhat)
         Me.Controls.Add(Me.btnNew)
         Me.Controls.Add(Me.btnThem)
         Me.Controls.Add(Me.btnXoa)
-        Me.Controls.Add(Me.btnSua)
         Me.Controls.Add(Me.btnInHoaDonXuat)
         Me.Controls.Add(Me.lbSoLuongXuat)
         Me.Controls.Add(Me.txtSoLuongXuat)
@@ -354,6 +444,8 @@ Partial Class FormCTHDXuat
         Me.Name = "FormCTHDXuat"
         Me.Size = New System.Drawing.Size(1117, 632)
         CType(Me.dgvCTHDXuat, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btnclose, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -371,10 +463,16 @@ Partial Class FormCTHDXuat
     Friend WithEvents txtSoCTXuat As Bunifu.Framework.UI.BunifuMaterialTextbox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents btnInHoaDonXuat As Bunifu.Framework.UI.BunifuThinButton2
-    Friend WithEvents btnSua As Bunifu.Framework.UI.BunifuTileButton
     Friend WithEvents btnXoa As Bunifu.Framework.UI.BunifuTileButton
     Friend WithEvents btnThem As Bunifu.Framework.UI.BunifuTileButton
     Friend WithEvents btnNew As Bunifu.Framework.UI.BunifuTileButton
     Friend WithEvents btnCapNhat As Bunifu.Framework.UI.BunifuTileButton
-
+    Friend WithEvents txtTongTienXuat As Bunifu.Framework.UI.BunifuMaterialTextbox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents dtpngayxuat As DateTimePicker
+    Friend WithEvents Label7 As Label
+    Friend WithEvents lbsophieuxuat As Label
+    Friend WithEvents btnclose As Bunifu.Framework.UI.BunifuImageButton
+    Friend WithEvents PictureBox1 As PictureBox
 End Class

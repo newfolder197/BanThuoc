@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -52,6 +67,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Management" />
     <Reference Include="System.Windows.Forms" />
@@ -86,6 +102,12 @@
       <DependentUpon>Form1.vb</DependentUpon>
     </Compile>
     <Compile Include="Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.vb">
+      <DependentUpon>Form2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form2.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormCTHDNhap.Designer.vb">
@@ -130,6 +152,12 @@
     <Compile Include="FormNhomThuoc.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="FormThongKe.Designer.vb">
+      <DependentUpon>FormThongKe.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormThongKe.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="FormThuoc.Designer.vb">
       <DependentUpon>FormThuoc.vb</DependentUpon>
     </Compile>
@@ -157,10 +185,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>THUOCDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Toexcel.vb" />
+    <Compile Include="ToexcelNhanVien.vb" />
+    <Compile Include="FormHome.Designer.vb">
+      <DependentUpon>FormHome.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormHome.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="toexcelthuoc.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormCTHDNhap.resx">
       <DependentUpon>FormCTHDNhap.vb</DependentUpon>
@@ -174,6 +214,9 @@
     <EmbeddedResource Include="FormHDNhap.resx">
       <DependentUpon>FormHDNhap.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormHome.resx">
+      <DependentUpon>FormHome.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNhaCC.resx">
       <DependentUpon>FormNhaCC.vb</DependentUpon>
     </EmbeddedResource>
@@ -182,6 +225,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormNhomThuoc.resx">
       <DependentUpon>FormNhomThuoc.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormThongKe.resx">
+      <DependentUpon>FormThongKe.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormThuoc.resx">
       <DependentUpon>FormThuoc.vb</DependentUpon>
@@ -215,6 +261,18 @@
     <None Include="THUOCDataSet.xss">
       <DependentUpon>THUOCDataSet.xsd</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

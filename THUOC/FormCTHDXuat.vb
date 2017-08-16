@@ -2,14 +2,12 @@
     Dim kn As New KetNoi
     Private _soLuong As Integer
     Private sql As String
-
+    Dim directory As String = My.Application.Info.DirectoryPath
     Private Sub FormCTHDXuat_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         lbDonGiaXuat.Visible = False
         lbSoCTXuat.Visible = False
         lbSoLuongXuat.Visible = False
-        ShowData()
         loadMaThuoc()
-        NameHeaderDgv()
 
     End Sub
     Private Sub NameHeaderDgv()
@@ -50,11 +48,21 @@
     End Sub
     Private Sub ClearText()
         txtDonGiaXuat.Text = ""
-        txtSoCTXuat.Text = ""
         txtSoLuongXuat.Text = ""
     End Sub
-    Private Sub ShowData()
-        dgvCTHDXuat.DataSource = kn.getData("loadCTHDXUAT")
+    Private Sub ShowData(ByVal id As String)
+        ' MsgBox(id)
+
+        Dim _soluong As Integer
+        _soluong = 0
+        Dim sql As String
+        sql = "checkIDcthdxuat"
+        Dim Name(_soluong) As String
+        Dim Value(_soluong) As String
+        Name(0) = "@ma"
+        Value(0) = id
+        dgvCTHDXuat.DataSource = kn.checkID(sql, Name, Value, _soluong)
+
     End Sub
     Public Function Add(ByVal ssql As String, ByVal CTHDXUAT As ClassCTHDXuat) As Integer
         _soLuong = 3
@@ -89,4 +97,115 @@
             txtSoCTXuat.Enabled = False
         End If
     End Sub
+
+    Private Sub btnclose_Click(sender As Object, e As EventArgs) Handles btnclose.Click
+        Try
+            Me.Hide()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        End Try
+    End Sub
+
+    Private Sub btnInHoaDonXuat_Click(sender As Object, e As EventArgs) Handles btnInHoaDonXuat.Click
+        Dim SaveFileDialog1 As SaveFileDialog = New SaveFileDialog()
+
+        Dim colName As String = "Số chứng từ xuất,Mã thuốc,Đơn giá bán,Số lượng Xuất"
+        Try
+            SaveFileDialog1.Filter = "Excel (*.xlsx)|*.xlsx"
+            SaveFileDialog1.ShowDialog()
+            Dim File_name = SaveFileDialog1.FileName
+            Export_to_Excel(dgvCTHDXuat.DataSource, colName, File_name)
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop)
+        End Try
+    End Sub
+
+    Private Sub txtSoCTXuat_OnValueChanged(sender As Object, e As EventArgs) Handles txtSoCTXuat.OnValueChanged
+        ShowData(txtSoCTXuat.Text)
+
+        NameHeaderDgv()
+    End Sub
+    Public Function Remove(ByVal ssql As String, ByVal cthdxuat As ClassCTHDXuat) As Integer
+        _soLuong = 0
+        Dim Name(_soLuong) As String
+        Dim Value(_soLuong) As Object
+        Name(0) = "@so_ct_xuat"
+        Value(0) = cthdxuat.SoCtXuat
+
+        Return kn.Add(ssql, Name, Value, _soLuong)
+    End Function
+    Private Sub btnThem_Click(sender As Object, e As EventArgs) Handles btnThem.Click
+        Try
+            Dim _soct As String
+            _soct = txtSoCTXuat.Text
+            If (String.IsNullOrEmpty(txtDonGiaXuat.Text)) OrElse (String.IsNullOrEmpty(txtSoLuongXuat.Text)) Then
+                    KtraNULL()
+                Else
+
+                    Dim cthdxuat As New ClassCTHDXuat
+                    cthdxuat.SoCtXuat = txtSoCTXuat.Text
+                    cthdxuat.MaThuoc = cbMaThuoc.SelectedValue
+                    cthdxuat.DonGiaBan = txtDonGiaXuat.Text
+                    cthdxuat.SoLuongXuat = txtSoLuongXuat.Text
+
+
+                    sql = "insertCTHDXUAT"
+                    Add(sql, cthdxuat)
+                    ShowData(Me.txtSoCTXuat.Text)
+
+                    MessageBox.Show("Thêm thành công!")
+                End If
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        End Try
+    End Sub
+
+    Private Sub btnNew_Click(sender As Object, e As EventArgs) Handles btnNew.Click
+        ClearText()
+        txtDonGiaXuat.Enabled = True
+        txtSoLuongXuat.Enabled = True
+        txtDonGiaXuat.Focus()
+        txtSoCTXuat.Enabled = False
+    End Sub
+
+    Private Sub btnXoa_Click(sender As Object, e As EventArgs) Handles btnXoa.Click
+        Try
+            Dim cthdxuat As New ClassCTHDXuat
+            cthdxuat.SoCtXuat = txtSoCTXuat.Text
+
+            sql = "removeCTHDXUAT"
+            Remove(sql, cthdxuat)
+            ShowData(Me.txtSoCTXuat.Text)
+            ClearText()
+
+
+            MessageBox.Show("Xóa thành công!")
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+
+        End Try
+    End Sub
+
+    Private Sub btnCapNhat_Click(sender As Object, e As EventArgs) Handles btnCapNhat.Click
+        If (String.IsNullOrEmpty(txtSoLuongXuat.Text)) OrElse (String.IsNullOrEmpty(txtDonGiaXuat.Text)) Then
+            KtraNULL()
+        Else
+
+            Dim cthdxuat As New ClassCTHDXuat
+
+            cthdxuat.SoCtXuat = txtSoCTXuat.Text
+            cthdxuat.MaThuoc = cbMaThuoc.SelectedValue
+            cthdxuat.DonGiaBan = txtDonGiaXuat.Text
+            cthdxuat.SoLuongXuat = txtSoLuongXuat.Text
+
+            sql = "updateCTHDXUAT"
+            Add(sql, cthdxuat)
+            ShowData(Me.txtSoCTXuat.Text)
+            '  NameHeaderDgv()
+            MessageBox.Show("Cập nhật thành công!")
+        End If
+    End Sub
+
+
 End Class

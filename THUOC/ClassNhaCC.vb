@@ -19,11 +19,11 @@
     End Property
 
 
-    Public Property DiaChi() As Integer
+    Public Property DiaChi() As String
         Get
             Return _diaChi
         End Get
-        Set(ByVal value As Integer)
+        Set(ByVal value As String)
             _diaChi = value
         End Set
     End Property

@@ -25,8 +25,7 @@
 
     End Sub
     Public Function Add(ByVal ssql As String, ByVal NhomThuoc As ClassNhomThuoc) As Integer
-        _soLuong = 2
-
+        _soLuong = 1
         Dim Name(_soLuong) As String
         Dim Value(_soLuong) As Object
         Name(0) = "@ma_nhom"
@@ -103,5 +102,64 @@
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
         End Try
+    End Sub
+    Public Function Remove(ByVal ssql As String, ByVal Nhomthuoc As ClassNhomThuoc) As Integer
+        _soLuong = 0
+        Dim Name(_soLuong) As String
+        Dim Value(_soLuong) As Object
+        Name(0) = "@ma"
+        Value(0) = Nhomthuoc.MaNhom
+        Return kn.Add(ssql, Name, Value, _soLuong)
+
+    End Function
+    Private Sub btnXoa_Click(sender As Object, e As EventArgs) Handles btnXoa.Click
+        Try
+            Dim Nhomthuoc As New ClassNhomThuoc
+            Nhomthuoc.MaNhom = txtMaNhom.Text
+            sql = "removeNHOMTHUOC"
+            Remove(sql, Nhomthuoc)
+            ShowData()
+            ClearText()
+            MessageBox.Show("Xóa thành công!")
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        End Try
+    End Sub
+
+    Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
+
+        If (String.IsNullOrEmpty(txtMaNhom.Text)) OrElse (String.IsNullOrEmpty(txtTenNhom.Text)) Then
+            KtraNULL()
+        Else
+            LbMaNhom.Visible = False
+            LbTenNhom.Visible = False
+            Dim Nhomthuoc As New ClassNhomThuoc
+            Nhomthuoc.MaNhom = txtMaNhom.Text
+            Nhomthuoc.TenNhom = txtTenNhom.Text
+            sql = "updateNHOMTHUOC"
+            Add(sql, Nhomthuoc)
+            ShowData()
+            MessageBox.Show("Cập nhật thành công!")
+        End If
+    End Sub
+
+    Private Sub txtTimKiemNhomThuoc_TextChanged(sender As Object, e As EventArgs) Handles txtTimKiemNhomThuoc.TextChanged
+        Dim _soluong As Integer
+        Dim sql As String
+        _soluong = 0
+        Dim Value(_soluong) As String
+        Dim Name(_soluong) As String
+        If txtTimKiemNhomThuoc.Text.Length > 0 Then
+
+            sql = "searchIDNHOMTHUOC"
+            Name(0) = "@ma"
+            Value(0) = txtTimKiemNhomThuoc.Text
+            dgvNhomThuoc.DataSource = kn.checkID(sql, Name, Value, _soluong)
+
+        End If
+    End Sub
+
+    Private Sub btndelsearch_Click(sender As Object, e As EventArgs) Handles btndelsearch.Click
+        txtTimKiemNhomThuoc.Text = ""
     End Sub
 End Class

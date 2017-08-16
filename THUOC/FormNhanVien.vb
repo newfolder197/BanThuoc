@@ -15,7 +15,7 @@
     End Function
 
     Public Function Add(ByVal ssql As String, ByVal NhanVien As ClassNhanVien) As Integer
-        _soLuong = 10
+        _soLuong = 9
 
         Dim Name(_soLuong) As String
         Dim Value(_soLuong) As Object
@@ -44,16 +44,16 @@
         Name(6) = "@cmnd "
         Value(6) = NhanVien.Cmnd
 
-        Name(4) = "@phan_quyen"
-        Value(4) = NhanVien.Phanquyen
+        Name(7) = "@phan_quyen"
+        Value(7) = NhanVien.Phanquyen
 
 
-        Name(5) = "@ten_dn"
-        Value(5) = NhanVien.Tendn
+        Name(8) = "@ten_dn"
+        Value(8) = NhanVien.Tendn
 
 
-        Name(6) = "@mk "
-        Value(6) = NhanVien.Mk
+        Name(9) = "@mk "
+        Value(9) = NhanVien.Mk
 
         Return kn.Add(ssql, Name, Value, _soLuong)
     End Function
@@ -157,5 +157,147 @@
             txtMatKhau.Text = row.Cells("mk").Value.ToString
             txtMaNhanVien.Enabled = False
         End If
+    End Sub
+    Public Function Remove(ByVal ssql As String, ByVal Nhanvien As ClassNhanVien) As Integer
+        _soLuong = 0
+        Dim Name(_soLuong) As String
+        Dim Value(_soLuong) As Object
+        Name(0) = "@ma"
+        Value(0) = Nhanvien.Manv
+        Return kn.Add(ssql, Name, Value, _soLuong)
+
+    End Function
+    Private Sub btnXoa_Click(sender As Object, e As EventArgs) Handles btnXoa.Click
+        Try
+            Dim Nhanvien As New ClassNhanVien
+            Nhanvien.Manv = txtMaNhanVien.Text
+            sql = "removeNHANVIEN"
+            Remove(sql, Nhanvien)
+            ShowData()
+            ClearText()
+            MessageBox.Show("Xóa thành công!")
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        End Try
+    End Sub
+
+    Private Sub btnThem_Click(sender As Object, e As EventArgs) Handles btnThem.Click
+        Try
+            Dim _manv As String
+            _manv = txtMaNhanVien.Text
+
+            If ktrID(_manv).Rows.Count > 0 Then
+                lbMaNhanVien.Text = "Trùng mã nhân viên!"
+                lbMaNhanVien.Visible = True
+                txtMaNhanVien.Text = ""
+                txtMaNhanVien.Focus()
+            Else
+                lbMaNhanVien.Visible = False
+                If (String.IsNullOrEmpty(txtChucVu.Text)) OrElse (String.IsNullOrEmpty(txtCMND.Text)) OrElse (String.IsNullOrEmpty(txtDiaChi.Text)) OrElse (String.IsNullOrEmpty(txtGioiTinh.Text)) OrElse (String.IsNullOrEmpty(txtMaNhanVien.Text)) OrElse (String.IsNullOrEmpty(txtMatKhau.Text)) OrElse (String.IsNullOrEmpty(txtNamSinh.Text)) OrElse (String.IsNullOrEmpty(txtPhanQuyen.Text)) OrElse (String.IsNullOrEmpty(txttaiKhoan.Text)) OrElse (String.IsNullOrEmpty(txtTenNhanVien.Text)) Then
+                    KtraNULL()
+                Else
+                    lbMaNhanVien.Visible = False
+                    lbTenNhanVien.Visible = False
+                    lbTaiKhoan.Visible = False
+                    lbPhanQuyen.Visible = False
+                    lbNamSinh.Visible = False
+                    lbMatKhau.Visible = False
+                    lbGioiTinh.Visible = False
+                    lbDiaChi.Visible = False
+                    lbCMND.Visible = False
+                    lbChucVu.Visible = False
+                    Dim Nhanvien As New ClassNhanVien
+                    Nhanvien.Manv = txtMaNhanVien.Text
+                    Nhanvien.Tennv = txtTenNhanVien.Text
+                    Nhanvien.Chucvu = txtChucVu.Text
+                    Nhanvien.Cmnd = txtCMND.Text
+                    Nhanvien.Diachi = txtDiaChi.Text
+                    Nhanvien.Gioitinh = txtGioiTinh.Text
+                    Nhanvien.Mk = txtMatKhau.Text
+                    Nhanvien.Namsinh = txtNamSinh.Text
+                    Nhanvien.Phanquyen = txtPhanQuyen.Text
+                    Nhanvien.Tendn = txttaiKhoan.Text
+                    sql = "insertNHANVIEN"
+                    Add(sql, Nhanvien)
+                    ShowData()
+                    MessageBox.Show("Thêm thành công!")
+                End If
+            End If
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        End Try
+    End Sub
+
+    Private Sub btnCapNhat_Click(sender As Object, e As EventArgs) Handles btnCapNhat.Click
+
+        If (String.IsNullOrEmpty(txtChucVu.Text)) OrElse (String.IsNullOrEmpty(txtCMND.Text)) OrElse (String.IsNullOrEmpty(txtDiaChi.Text)) OrElse (String.IsNullOrEmpty(txtGioiTinh.Text)) OrElse (String.IsNullOrEmpty(txtMaNhanVien.Text)) OrElse (String.IsNullOrEmpty(txtMatKhau.Text)) OrElse (String.IsNullOrEmpty(txtNamSinh.Text)) OrElse (String.IsNullOrEmpty(txtPhanQuyen.Text)) OrElse (String.IsNullOrEmpty(txttaiKhoan.Text)) OrElse (String.IsNullOrEmpty(txtTenNhanVien.Text)) Then
+            KtraNULL()
+        Else
+            lbMaNhanVien.Visible = False
+            lbTenNhanVien.Visible = False
+            lbTaiKhoan.Visible = False
+            lbPhanQuyen.Visible = False
+            lbNamSinh.Visible = False
+            lbMatKhau.Visible = False
+            lbGioiTinh.Visible = False
+            lbDiaChi.Visible = False
+            lbCMND.Visible = False
+            lbChucVu.Visible = False
+            Dim Nhanvien As New ClassNhanVien
+            Nhanvien.Manv = txtMaNhanVien.Text
+            Nhanvien.Tennv = txtTenNhanVien.Text
+            Nhanvien.Chucvu = txtChucVu.Text
+            Nhanvien.Cmnd = txtCMND.Text
+            Nhanvien.Diachi = txtDiaChi.Text
+            Nhanvien.Gioitinh = txtGioiTinh.Text
+            Nhanvien.Mk = txtMatKhau.Text
+            Nhanvien.Namsinh = txtNamSinh.Text
+            Nhanvien.Phanquyen = txtPhanQuyen.Text
+            Nhanvien.Tendn = txttaiKhoan.Text
+            sql = "updateNHANVIEN"
+            Add(sql, Nhanvien)
+            ShowData()
+            MessageBox.Show("Cập nhật thành công!")
+        End If
+    End Sub
+
+    Private Sub btnNew_Click(sender As Object, e As EventArgs) Handles btnNew.Click
+        ClearText()
+        txtMaNhanVien.Focus()
+    End Sub
+
+    Private Sub txtTimKiemNV_TextChanged(sender As Object, e As EventArgs) Handles txtTimKiemNV.TextChanged
+        Dim _soluong As Integer
+        Dim sql As String
+        _soluong = 0
+        Dim Value(_soluong) As String
+        Dim Name(_soluong) As String
+        If txtTimKiemNV.Text.Length > 0 Then
+
+            sql = "searchIDNHANVIEN"
+            Name(0) = "@ma"
+            Value(0) = txtTimKiemNV.Text
+            dgvNhanVien.DataSource = kn.checkID(sql, Name, Value, _soluong)
+
+        End If
+    End Sub
+
+    Private Sub btndelsearch_Click(sender As Object, e As EventArgs) Handles btndelsearch.Click
+        txtTimKiemNV.Text = ""
+    End Sub
+
+    Private Sub btnXuatExcel_Click(sender As Object, e As EventArgs) Handles btnXuatExcel.Click
+        Dim SaveFileDialog1 As SaveFileDialog = New SaveFileDialog()
+
+        Dim colName As String = "Mã NV,Tên NV,Chức Vụ,Giới Tính,Năm Sinh,Địa Chỉ,CMND,Phân Quyền, Tên ĐN, MK"
+        Try
+            SaveFileDialog1.Filter = "Excel (*.xlsx)|*.xlsx"
+            SaveFileDialog1.ShowDialog()
+            Dim File_name = SaveFileDialog1.FileName
+            Export_to_Excel_NV(dgvNhanVien.DataSource, colName, File_name)
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop)
+        End Try
     End Sub
 End Class
